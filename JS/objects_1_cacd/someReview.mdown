@@ -1,0 +1,166 @@
+#Some review 
+
+## Primitive data types
+
+The very basic building block of JavaScript are primitive data types. We know of three primitives:
+
+strings (e.g. "dogs go woof!")
+numbers (e.g. 4, 10)
+booleans (e.g. false, 5 > 4)
+
+    ```JavaScript
+    (((3 * 90) === 270) || !(false && (!false)) || "bex".toUpperCase() === "BEX");
+    ```
+
+Focus on each element of the expression separated by the `||` *("OR")* operator. You will see that there are *three smaller expressions.* Evaluate those smaller expressions first, then use them use *three Booleans* and determine the overall expression's **Boolean value.**
+
+For each of the smaller expressions, ask yourself these questions:
+
+1. Does 3 * 90 equal 270?
+
+2. What's the opposite of false AND not-false?
+
+3. If we turn "bex" into all-uppercase letters, will it be the same as "BEX"?
+
+Since we're dealing with the || ("OR") operator here, if the first statement OR the second statement OR the third statement is true, the entire statement is true, and the value of answer should be true.
+
+##Through the hard times
+We know two ways of storing data types. *We can use variables or arrays.* We use *variables* to *store data* (like strings or numbers) that we’d later want to access.
+
+An array is exactly the same as a variable in that it stores data. The difference is that an array can store many more values while a variable can only store one.
+
+To access arrays, we use bracket notation and remember that arrays use 0-based indexing (i.e., the first value in an array is at position 0).
+
+
+Look at the array multiplesOfEight, and find the one that doesn't fit.
+
+Replace X in line 6 such that the variable answer is assigned the Boolean value of true.
+
+    ```JavaScript
+    // Here is an array of multiples of 8. But is it correct?
+    var multiplesOfEight = [8,16,24,32,40,58];
+
+    // Test to see if a number from the array is NOT a true
+    // multiple of eight. Real multiples will return false.
+    var answer = multiplesOfEight[48] % 8 !== 0;
+    ```
+
+## Fizz buzz exercise 
+**Great response by Roy on how to write an efficient fizz buzz program**
+This article is based on another users code..This users code was quite un-efficient and Roy goes in and points out a few **important** details on how to improve it.
+
+___
+
+As an aside let's examine one bit of your code:
+
+`!i%5===0`
+
+There are three operators in the above expression. ! NOT; % MOD, or modulo; and === EQU, or strict type matching equality. Order of operations rules come into play. Logic and math have that in common.
+
+So the question is, how well did you understand the above expression when you put it into use? My guess? Not very. This is not a dig, only a great opportunity to study exactly how this stuff works. We all want to know. How does this expression play out?
+
+First, let's look at the order in which they are stacked up:
+
+`NOT MOD EQU`
+Considering left to right order, start with *NOT*. This negation operator is working with the operand *immediately associated with it.* In the above expression, that would be `i` (not i%5 as we might expect).
+
+To save typing, and see immediate output, how be we shift to the JavaScript Console and enter code at the command line?
+
+    ```JavaScript
+    > i = 15
+    15
+    > !i
+    false
+    ```
+
+Since this program begins at `i=1,` the value will always be false.
+
+    ```JavaScript
+    > !i
+    false
+    > false % 5
+    0
+    ```
+This likewise, will always be **zero** when `i` is **nonzero**
+
+Witness, coercion, otherwise normally referred to as casting. For the purposes of the *modulo operator* to work, both *operands needed to be numbers.* What does loosely typed JavaScript go ahead and do? It casts `false` (boolean type) into a `0` (number type) and carries on its merry way.
+
+Go ahead, try casting true using the above, `true % 5`. Surprise! `1`. Same thing we would get if we wrote, `1 % 5` .
+    
+    ```JavaScript
+    > true % 5
+    1
+    ```
+**SAME THING**
+
+    ```JavaScript
+    > 1 % 5
+    1
+    ```
+
+This is very important stuff to grasp on to. I hope you are taking notes or bookmarking this thread. *HINT HINT :)* It's not a topic that comes up much, at least not as opportunistically as I'm treating it, just now. By your leave, I hope...
+
+Where were we?
+
+    ```JavaScript
+    ! i => false
+    false % 5 => 0
+    0 === 0 => true
+    ```
+
+This is the order in which the code appears to be running. That would indicate, then, that the outcome of this expression will always be true when `i%3` is **zero**
+
+*left to right order*
+
+`> i % 3 === 0 && !i % 5 === 0`
+`true`
+
+    ```JavaScript
+    !i 
+    false
+
+    false % 5
+    0
+
+    i % 3
+    0
+    ```
+
+## I have to celebrate you baby
+This exercise has lots of movies and reviews to type in. You might wonder, "Is this teaching coding or typing?!"
+
+But there's a reason why there are so many cases to deal with. We want to show that if we used if-else statements, it would be inefficient. What alternative to if / else can we use?
+
+##Solution 
+    ```JavaScript
+    // Imagine you have a movie collection, and you want to write code that returns your review for each one. Here are the movies and your reviews:
+
+    // "Toy Story 2" - "Great story. Mean prospector."
+    // "Finding Nemo" - "Cool animation, and funny turtles."
+    // "The Lion King" - "Great songs."
+    // Write a function named getReview that takes in a movie name and returns its review based on the information above. If given a movie name not found just return "I don't know!". Use a structure learned in an earlier lesson (NOT if/else statements) to write this function.
+
+
+    var getReview = function (movie){
+
+    switch(movie){
+
+    case "Toy Story 2":
+    title = "Great story. Mean prospector.";
+    break;
+
+    case "Lion King":
+    title = "Great songs.";
+    break;
+
+    case "Finding Memo":
+    title = "Cool animation, and funny turtles.";
+    break;
+
+    default:
+    title = "I dont know";
+    }
+    };
+
+    getReview("Toy Story 2");
+    ```

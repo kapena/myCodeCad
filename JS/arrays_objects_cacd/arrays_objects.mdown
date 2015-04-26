@@ -1,0 +1,180 @@
+#Arrays and Objects
+It's not necessary for you to put the same *type of data in an array!* For instance, you don't have to have
+
+`var pronouns = ["I", "you", "we"];`
+`var numbers = [1, 2, 3];`
+You can have a heterogeneous array, which means a mixture of data types, like so:
+
+`var mix = [42, true, "towel"];`
+
+## Two-dimensional array 
+You can even put other arrays inside arrays. You can make a two-dimensional array by nesting arrays one layer deep, like so:
+
+`var twoDimensional = [[1, 1], [1, 1]];`
+
+This array is two-dimensional because it has two rows that each contain two items. If you were to put a new line between the two rows, you could log a 2D object—a square—to the console, like so:
+
+`[1, 1]`
+`[1, 1]`∏
+
+###multidimensional array
+    
+    ```JavaScript
+    var newArray = [["hello","my age is, ",24],[true,24,"is your age"],["your age is? ",22,true]];
+    ```
+##Jagged arrays
+That's a fine-looking multidimensional array you've got there. (Yours is nested once, so it's a two-dimensional array, but if you really wanted, you could put arrays inside arrays inside arrays for even more dimensions.)
+
+
+Sometimes you want arrays that aren't as nice and even as your *3 x 3 two-dimensional array:* you may have *three elements in the first row, one element in the second row, and two elements in the third row.* JavaScript allows those, and they're called *jagged arrays.*
+
+#Objects 
+##Nouns and verbs together
+
+Let's go back to the analogy of computer languages being like regular spoken languages. In English, you have **nouns** *(which you can think of as "things")* and **verbs** *(which you can think of as "actions").* Until now, our nouns *(data, such as numbers, strings, or variables)* and verbs *(functions)* have been separate.
+
+No longer!
+
+Using objects, we can put our information and the functions that use that information in the same place.
+
+You can also think of **objects** as *combinations of key-value pairs* (like arrays), only their keys don't have to be numbers like 0, 1, or 2: they can be strings and variables.
+
+##An example Object
+
+    ```JavaScript
+    var phonebookEntry = {};
+
+    phonebookEntry.name = 'Oxnard Montalvo';
+    phonebookEntry.number = '(555) 555-5555';
+    phonebookEntry.phone = function() {
+      console.log('Calling ' + this.name + ' at ' + this.number + '...');
+    };
+    phonebookEntry.phone();
+    ```
+
+The phonebookEntry object handled data *(a name and a telephone number)* as well as a procedure *(the function that printed who it was calling).*
+
+In that example, we gave the **key name** the **value** 'Oxnard Montalvo' and the **key number** the value '(555) 555-5555'. An object is like an array in this way, except its keys can be *variables and strings,* not just numbers.
+
+Objects are just collections of information *(keys and values)* between curly braces, like this:
+
+
+
+    ```JavaScript
+    var myObject = {
+        key: value,
+        key: value,
+        key: value
+      };
+    ```
+
+*Me object*
+
+    ```JavaScript
+    var me = {
+      name:"brent",
+      age:24,
+    };
+    ```
+There are two ways to create an object: using *object* **literal** notation (which is what you just did) and using the *object* **constructor**.
+
+*Literal notation* is creating an object with curly braces, like this:
+
+    ```JavaScript
+    var myObj = {
+        type: 'fancy',
+        disposition: 'sunny'
+    };
+    ```
+*Constructor notation* looks like this:
+
+`var myObj = new Object();`
+
+This tells JavaScript: "I want you to make me a new thing, and I want that thing to be an Object.
+
+You can add keys to your object after you've created it in two ways:
+
+*Array notation*
+Array notation allows you at access properties of an object but *not*
+its methods.
+
+`myObj["name"] = "Charlie";`
+
+*Dot notion*
+You use dot notation to access a *property* or *method* of an object
+
+`myObj.name = "Charlie";`
+
+Both are correct, and the second is shorthand for the first.
+
+Link for more reference on objects :) 
+[Objects](http://www.w3schools.com/js/js_object_definition.asp)
+
+##Heterogeneous arrays
+Let's warm up with some arrays! Let's make an array that's a veritable potpourri of data types.
+
+`var myArray = [1,true,"hello",myObj  = {}];`
+
+##Add objects to object like this 
+
+## Object Literal
+
+    ```JavaScript
+      friends = {
+        bill: {},
+        steve: {}
+      };
+    ```
+
+## Object Constructor
+
+    ```JavaScript
+    var friends = new Object();
+    // Adding keys to friends object constructor
+    friends.bill = new Object();
+    friends.steve = new Object();
+    ```
+
+With the bracket ([]) or dot(.) notation, like this:
+
+    friends[bill] = {};
+    friends.steve = {};
+
+##For/in loop
+
+The first function we'll create will be called list, and it will print out all the entries we have in our friends object. To do this, we'll want to use a bit of new syntax: a **for/in loop**.
+
+It looks like this:
+
+    ```JavaScript 
+    for (var key in object) {
+      // Access that key's value
+      // with object[key]
+     }
+     ```
+    
+The "key" bit can be any placeholder name you like. It's sort of like when you put a placeholder parameter name in a function that takes arguments.
+
+**More on Keys**
+`for key in object` describes the *iteration* through all the keys of an object. Because this is *non-indexed, in is the control.* Objects generally have a finite number of properties in them, and this loop finds them out, one at a time.
+
+Keys being paired with values, once we hook a key with our iterator variable, we can query the value, as in, `object[key]`. In this sense key can be *any variable name*, such as prop or i. It is a variable that points to *(references)* an actual property name that only it knows at the time.
+
+`object.key` does not exist unless it is defined
+`object[key]` dynamically points to properties
+Substitute key for i in your function. Same result. It listed all the keys, but only the keys. Now substitute prop and see the same results, again.
+
+Here's a question: If we have an object with an actual key name, key, can we still use key as our control variable in a for in loop? Answer, yes. They are not connected to each other in any way. One is a key, the other only references a key. And, they have different owners. *The key being owned by the object, and the variable being owned by its function.*
+
+Things we can do:
+
+`object.key = "this string value";`
+If the key, key exists, then we are setting it, if it does not, then we are defining it, and setting it in *one stroke.* The same would hold true for this:
+
+`var key = 'key';`
+`object[key] = "this other string value"`
+
+#Notes to reference from Q&A
+[for in loop](http://www.codecademy.com/forum_questions/5286f472abf821c1d30033e8)
+
+[function returns](http://www.codecademy.com/forum_questions/53a8e20a8c1ccca0db0011b8)

@@ -1,0 +1,628 @@
+###An Objective Review
+
+**Literal notation** creates a single object. Literal notation uses curly brackets `{ }` and the object's default properties are defined within the brackets using `property:value notation`.
+
+**Constructor notation** involves defining an object constructor. And like defining a function, we use the `function` keyword. You can think of this constructor as a "template" from which you can create multiple objects. To create a new object from a constructor, we use the `new` keyword.
+
+###Function Fun 
+Recall that we can add methods (i.e., functions associated with objects) to a constructor:
+
+    ```JavaScript
+          function someObject(){
+          this.someMethod = function() {
+
+          };
+        }
+    ```
+Suppose we said `var someObj = new someObject();`. When we call `someObj.someMethod()`, the code between the curly brackets `{ }` above will run.
+
+###Literally Speaking
+In the last exercise, we added methods to objects via constructor notation. We can also add methods to objects in literal notation:
+
+    ```JavaScript
+      var someObj = {
+      // property 
+      someProperty: value,
+      // a method that takes parameters 
+      someMethod: function(some, params) { }
+      };
+    ```
+When we call `someObj.someMethod(some, values);`, the code between the curly brackets `{ }` will run.
+
+Note here we see a method that takes parameters. Methods defined in both constructors and literal notation can take parameters, just like normal functions.
+
+####Can I See Your References?
+
+Remember when defining a method for an object, it's easy to reference other properties in that object: just use `this.propertyName`!
+
+When that method is called, `this.propertyName` will always refer to the most recent value of propertyName.
+
+####Who's in Your Bracket?
+And finally, let's go over retrieving property values. Throughout this section, we've been using **dot notation** to get the value of an object's property:
+IE:`someObj.propName`
+You can also use bracket notation
+IE: `someObj["propName"]`
+
+An advantage of bracket notation is that we are not restricted to just using strings in the brackets. We can also use *variables whose values are property names:*
+
+IE:
+
+    ```JavaScript
+      var someObj = {propName: someValue};
+      var myProp  = "PropName";
+      someObj = ["someObj"] 
+    ```
+
+The last line is exactly the same as using `someObj["propName"];`.
+
+####ID., Please
+
+Alright! Let's get our hands dirty and start exploring some really cool stuff about objects in JavaScript. But before we can do that, how can we even tell if something is an object (as opposed to, say, a number or string)? It would be great if we could tell what type something is in JavaScript. Good thing there's a handy built-in operator to do this!
+
+Say we have a variable `thing` and we don't know what type `thing` is. We can call `typeof thing` oto figure this out. Generally, the most useful types are "number," "string," "function," and of course, "object."
+
+As an example, the following example will print `"object"`:
+
+    ```JavaScript
+    var someObj = {someProp: someVal};
+    console.log (typeof someObj);
+    ```
+
+####Know thyself
+In the last exercise, we used `typeof` to figure out what type a variable in JavaScript is. Since we know how to tell objects apart from everything else now, let's focus on them.
+
+You wouldn't know it, but every object in JavaScript comes with some baggage (stay tuned for more on this!). Part of this baggage includes a method called `hasOwnProperty`. This lets us know if an object has a particular property.
+
+We show how to use `hasOwnProperty` in the last two lines. It returns `true` or `false`, based on whether an object has a certain property.
+
+    ```JavaScript
+    // `hasOwnProperty` lets us know if an object has a certain property. 
+    var myObj = {
+      name: "my name is object"
+    };
+
+    // checking to see if myObj has the property of `name`
+    console.log(myObj.hasOwnProperty ("name")); // true 
+    ```
+
+####Dressed to impress
+Let's get some practice working with `hasOwnProperty`. It is an invaluable tool when working with objects!
+
+Try to run the code in the editor as it is. You should get an error because shorts is **not** a property of the `suitcase` object.
+
+Let's write some code to test for this so we can avoid this nasty error later.
+
+    ```JavaScript
+    var suitcase = {
+      shirt : "Hawaiian"
+    };
+
+    // write an if statement that checks to see if `suitcase` has the `shorts` property. 
+
+    if (suitcase.hasOwnProperty("shorts")){
+      console.log(suitcase.shorts);
+    }
+
+    // If your if statement evaluates to false, set the shorts property to any value you wish using dot notation. Then print the value of the shorts property.
+
+    else {
+      suitcase.shorts = "boardshorts";
+      console.log(suitcase.shorts);
+    }
+    ```
+####Getting In-timate
+Now let's learn how to work with all the properties that belong to an object. First, let's define an object:
+
+    ```JavaScript
+    var dog = {
+      species: "Kelpie",
+      age: 3,
+      color: red sand
+    };
+
+    // print out all the elements in the object 
+    for (var property in dog){
+      console.log(property);
+    }
+    ```
+In the `for in` loop we use console.log to print each key in `dog`
+`property` is just a placeholder name and it can be what ever we wish. 
+
+
+####List all the properties
+We've just seen how to print all of an object's property names with a `for-in loop`. But how do we print out all the values associated with every property? Surprise! The for-in loop will be our friend again! Let's get there slowly. Our dog object can help us.
+
+    ```JavaScript
+    var dog = {
+      species: "Kelpie"
+    };
+
+    ```
+Remember `dog.species = dog["species"]` will print
+Prints "Kelpie"
+
+But what I can also do this.
+`var a` is our placeholder  
+Remember that we are refferancing the `key` of `dog` which is `species`
+`var a = "species";`
+
+`dog` is our object and we are refferancing the placeolder `var a = "species"`
+
+`dog[a]`
+Prints "Kelpie"
+
+
+We see that by assigning the property name to a variable, we can then use the variable name in bracket notation to get the property's value. So to get all the values from the dog object, we would use the `for-in loop` and the bracket notation we just saw above. See the hint to see the code to print the property values for dog.
+
+####O0P 
+Alright, it's time to learn the basics of object-oriented programming! Often abbreviated OOP, this is a very important programming paradigm that is widely used in the industry today.
+
+Let's start by introducing more on **constructors**. We learned in the last course that constructors are a way to make objects, but they actually do even **more** than that.
+
+When you make a constructor, you are in fact defining a new **prototype**. A *prototype can be thought of as a **type**, or a category of objects*. 
+
+Take a look at our `Person` constructor example taken from Introduction to Objects I. In this case `bob` and `susan` are two separate objects, but both belong to the constructor `Person`.
+
+    ```JavaScript
+    function Person (name,age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    var bob = new Person("Bob Smith",30);
+    var susan = new Person ("Susan Jordan",35);
+
+    // define a new constructor called circle
+    function Cirlce (radius){
+      this.radius = radius;
+    }
+    // setting the parameter of `radius` to `3` 
+    var myCircle = new Circle (3);
+    ```
+####Teach Snoopy
+So we know that a object will have certain properties and methods, but what keeps track of what a given object can or can't do? What a object has or doesn't have? That is the job of the **prototype.**
+
+*JavaScript automatically defines the `prototype` for an `object` with a `constructor`.*
+
+For example, our `Dog` constructor ensures that the `Dog` prototype has a `breed` property. Remember, the `Dog` prototype keeps track of what Dog has, doesn't have, can, or can't do
+
+We know we can add **methods** to **objects**, and in line 7 we add the `bark` method to `buddy`. Hit run and you will see one "Woof" printed when buddy barks. Notice what happens when we try to get `snoopy` to bark in line 17 though. Even though snoopy is of the constructor `Dog`, he doesn't know how to `bark` because only `buddy` had `bark` added as a method.
+
+    ```JavaScript
+    function Dog (breed) {
+    this.breed = breed;  
+    }
+
+    // assigning buddy and teaching him to bark
+    var buddy = new Dog("Golden Retriever");
+    buddy.bark = function(){
+      console.log("Woof");
+    };
+    // calling bark
+    buddy.bark();
+
+
+    // make snoppy and then ask her bark just like buddy
+
+    ```
+####How do constructors help us? 
+*constructors* are very important in object-oriented programming. This is because **constructors tells us helpful information about objects**, and you can think of an object as a particular instance of a constructor.
+
+
+For example, look at our `Person` constuctor again. We know that any `Person` will have a `name` and `age`, because they are in the constructor. This allows us to create a `function` like `printPersonName`, which will take a `Person` as an argument and print out their name. We know the function will work on any `Person`, because name is a valid property for that constructor.
+
+    ```JavaScript
+    // Person constructor which as a name and age as parameters
+    function Person (name,age){
+      this.name = name;
+      this.age = age;
+    }
+    // function
+    var printPersonName = function (p){
+      console.log(p.name); 
+    };
+    // bob object
+    var bob = new Person ("Bob Smith",30);
+    // calling our printPersonName function and passing in `bob` as our argument.
+    printPersonName(bob);
+
+    // make person call me with your own `name` and `age`
+    // print your `name` using `printPersonName`
+    ```
+
+####Prototype To The Rescue
+Here we have very similar code as last time, but there is an important difference. Instead of using `buddy.bark` to add the bark method to just the `buddy` object, we use `Dog.prototype.bark`.
+
+Click run this time, and both `buddy` and `snoopy` can bark just fine! Snoopy can bark too even though we haven't added a bark method to that object. How is this so? 
+
+*Because we have now changed the prototype for the constructor `Dog`.* **This immediately teaches all `Dogs` the new method.**
+
+In general, if you want to add a method to a constructor such that all members of the constructor can use it, we use the following syntax to *extend the prototype:*
+
+    ```JavaScript
+    constructorName.prototype.newMethod = function () {
+    // Statements
+    };
+    ```
+
+    ```JavaScript
+    function Cat(name,breed){
+      this.name = name;
+      this.breed = breed;
+    // meow.prototype = function(){
+    //   console.log("Meow!");
+    // };
+    }
+      
+    // cat 1
+    var cheshire = new Cat("Cheshire Cat","British Shorthair");
+    var gary = new Cat ("Gary","Domestic Shorthair");
+
+    // add prototype here to method to print "meow" to console
+
+    ```
+####It's all in the genes
+
+In object-oriented programming, **inheritance** *allows one constructor to see and use the methods and properties of another constructor*. You can think of it as a child being able to use his or her parent's money because the child inherits the money.
+
+We will learn more about inheritance as we continue this lesson, but for now let's just refresh our memories about how constructores and objects work.
+
+####Marching Penguins
+
+Let's say we're dealing with a lot of Penguins. It sure would be nice to create a Penguin constructor so that perhaps later we can give it some methods unique to a `penguin` and not confuse it with the `Animal` constructor.
+
+####Dry Penguins 
+Creating a brand new `Penguin` was nice, but we did end up reusing a lot of the same code as the `Animal` constructor. This goes against the "DRY" principle of programming: **Don't Repeat Yourself**.
+
+**Inheritance** can help us here! A `Penguin` is an `Animal`, so they should have all the same properties and methods as `Animal`. Whenever this **X is-a Y** relationship exists, there's a good chance that we should be using inheritance.
+
+####Remember
+Inheritance lets us see and use properties and methods from another constructor. To say that `Penguin` inherits from `Animal`, we need to set Penguin's prototype to be `Animal`.
+
+    ```JavaScript
+
+    // 18 / 33 
+    // Animal constructor
+    function Animal (name,numLegs){
+      this.name = name;
+      this.numLegs = numLegs;
+    }
+
+    Animal.prototype.sayName = function (){
+      console.log("Hi my name is " + this.name);
+    };
+
+    // Create a new Penguin constructor. The Penguin constructor can be more unique than the generic Animal one because all penguins have 2 legs. Penguin constructor should only take a name parameter, and within the constructor itself, set this.numLegs to 2.
+
+    // Set the Penguin constructor prototype to a new instance of Animal by adding this line after you make the constructor:
+
+    // IE : Penguin.prototype = new Animal();
+
+    // This means that Penguin inherits properties and methods from Animal.
+
+    ```
+####Penguin Magic
+We never defined a `sayName` method for `Penguin`, but what happens when we try to call it?
+
+    ```JavaScript
+    // Create a Penguin object with the variable name penguin and any name you'd like.
+    var penguin = new Penguin ("Dusty");
+    // then call `penguin`
+    penguin.sayName();
+    ```
+####Penguins, Properties, and the Prototype
+We saw in the last exercise how Penguin inherited the `sayName` method from `Animal`. We now explore how constructors can inherit properties as well.
+
+For simplicity, we've defined a new `Penguin` constructor that doesn't inherit anything from Animal.
+
+    ```JavaScript
+    function Penguin(name) {
+        this.name = name;
+        this.numLegs = 2;
+    }
+
+    // create your Emperor constructor here and make it inherit from Penguin
+
+    // create an "emperor" object and print the number of legs it has by accessing numLegs which is inside of Penguin
+
+    ```
+####Up the Food-I-mean-Prototype Chain
+A penguin is an `Animal` and an `emperor` penguin is a `penguin`. Are emperor penguins animals too? Of course!
+
+The "prototype chain" in JavaScript knows this as well. If JavaScript encounters something it can't find in the current constructos methods or properties, it looks up the **prototype chain** to see if it's defined in a constructor that it inherits from. 
+
+This keeps going upwards until it stops all the way at the top: the mighty `Object.prototype` (more on this later). By default, all constructors inherit directly from Object, unless we change the constructor's prototype, like we've been doing for `Penguin` and `Emperor.
+
+    ```JavaScript
+    // Animal Constructor 
+    function Animal(name, numLegs) {
+        this.name = name;
+        this.numLegs = numLegs;
+        this.isAlive = true;
+    }
+    // Penguin Constructor 
+    function Penguin(name) {
+        this.name = name;
+        this.numLegs = 2;
+    }
+    // Emperor Constructor
+    function Emperor(name) {
+        this.name = name;
+        this.saying = "Waddle waddle";
+    }
+
+    // set up the prototype chain
+    // Penguin inherits from Animal
+    // Emperor inherits from Penguin
+
+    Penguin.prototype = new Animal();
+    Emperor.prototype = new Penguin();
+
+    // myEmperor is an object that is attached to an instance of the Penguin constructor which is then used to refferance of the the surrounding constructors
+
+    var myEmperor = new Emperor("Jules");
+    // Print waddle waddle
+    console.log();
+    // Print 2 
+    console.log()
+    // Print true
+    console.log();
+    ```
+####Open to the Public
+In JavaScript all properties of an object are automatically **public**. Public means that they can be accessed outside the constructor. Think of these properties as the information a constructor is willing to share.
+
+Look at the `Person` constructor. It has 3 `public` properties: `firstName`, `lastName`, and `age`. On lines 8 and 9, we access the `firstName` and `lastName` properties of `john` and assign them to `myFirst` and `myLast`.
+
+Notice that we are free to access the `firstName` and `lastName` properties, which is what we mean when we say they are public.
+
+    ```JavaScipt
+    function Person(first,last,age) {
+       this.firstName = first;
+       this.lastName = last;
+       this.age = age;
+    }
+
+    var john = new Person('John','Smith',30);
+    var myFirst = john.firstName;
+    var myLast = john.lastName;
+
+    // Declare a third variable `myAge` set to the age of the john object
+
+    ```
+
+###Private Variables
+
+Good! But what if an object wants to keep some information hidden?
+
+Just as functions can have **local** variables which can *only be accessed from within that function*, objects can have **private** variables. Private variables are pieces of information you do not want to publicly share, and they can only be directly accessed from within the constructor.
+
+The `Person` constructor has been modified to have a private variable called `bankBalance`. Notice that it looks just like a normal variable, but it is **defined inside the constructor** for `Person` without using this, but instead using var. This makes `bankBalance` a private variable
+
+    ```JavaScript 
+    function Person (firstName,lastName,age){
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.age = age;
+      // private variable `bankBalence` 
+      var bankBalence = 7500;
+    }
+    
+    /*Create an object `john` using the `Person` constructor. He can have any name and age you wish.*
+    
+    // then print to the console bankBalence
+    ```
+
+###Accessing Private Variables
+
+Although we cannot directly access private variables from outside the constructor, there is a way to get around this. We can *define a public method that returns the value of a private variable.*
+
+    ```JavaScript
+    function Person (firstName,lastName,age){
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.age = age;
+      // private variable `bankBalence` 
+      var bankBalance = 7500;
+
+    // 24 / 33 
+    // definine a method called `getBalance` and have it return `bankBalence` 
+
+    // john object
+    var john = new Person ("John","Wayne",5);
+
+    // create a new variable named `myBalance` and set its value to John's `bankBalance`. Hint (call `getBalance` method that is inside myBalance) 
+
+    // calling getBalance inside of myBalance
+
+
+    // log `myBalance` to see our private varaible exposed.
+    ```
+###Private Methods
+Why did that code work? An object's private variables can only be accessed by other methods that are part of that same object. *So, we just used an object's public method to access a private variable!*
+
+Methods can also be private within a constructor and inaccessible outside of the constructor. Changing `this.returnBalance` from the last exercise to `var returnBalance` makes this method private. If you run the program trying to access the method you get an undefined error this time.
+
+The way to access a private method is similar to accessing a private variable. You must create a public method for the constructor that returns the private method.
+
+    ```JavaScript
+    function Person (name,last,age){
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      // private variable
+      var bankBalance = 7500;
+
+      // private method
+      var returnBalance = function (){
+        return bankBalance;
+      };
+
+    // askTeller is public method 
+    // create askTeller 
+    }
+
+    var john = new Person ("John","Wayne",30);
+    // logging john object and the returnBalance method. 
+    console.log(john.returnBalance);
+    // assinging a variable of `myBalanceMethod` to john.askTeller. 
+
+    // askTeller is a method
+    var myBalanceMethod = john.askTeller();
+    // assinging a variable of `myBalance` myBalanceMethod();
+
+    // we are calling `askTeller` method through `myBalanceMethod` 
+    // NOTE: Ask teller returns a method therefore we must call it to make use of it. The line bellow maskes use of our method `john.askTeller` 
+    var myBalance = myBalanceMethod();
+
+    // logging myBalance to call our method askTeller
+    console.log(myBalance);
+    ```
+
+###Passing Arguments
+The `askTeller` function has been modified within the Person constructor to directly give you your balance. However, it now needs the account password in order to return the `bankBalance`. 
+
+    ```JavaScript
+    function Person (first,last,age) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      var bankBalence = 7500;
+
+      this.askTeller = function (pass) {
+        if (pass === 1234) {
+          return bankBalence;
+        }
+
+        else {
+          return "Wrong password";
+        }
+      };
+    }
+    var john = new Person ("John","Wayne",30);
+
+    // Create a new variable called myBalance that calls the askTeller function with a password argument, 1234.
+    
+    ```
+###Looks For-In to Me
+Objects aren't so foreign if you really think about it!
+
+Remember you can figure out the type of a variable by using `typeof myVariable;`. Types we are concerned with for now are "object", "string", and "number".
+
+Recall the for-in loop:
+
+**Printing out values in for in**
+
+    ```JavaScript
+    // when I want to print the values of my object I use var `value`
+    for(var value in obj){
+      console.log(obj[value]);
+    }
+    ```
+
+**Printing out keys in for in**
+
+    ```JavaScript
+      // when I want to print the key in my object I use var `key`
+    for (var key in obj){
+      // when printing out a key you only need to reffernace your `key` var
+      console.log(ley);
+    }
+    ```
+
+Examine the languages object. Three properties are strings, whereas one is a number.
+
+Use a for-in loop to print out the three ways to say hello. In the loop, you should check to see if the property value is a string so you don't accidentally print a number.
+
+    ```JavaScript
+    var languages = {
+        english: "Hello!",
+        french: "Bonjour!",
+        notALanguage: 4,
+        spanish: "Hola!"
+    };
+
+    // print hello in the 3 different languages
+    ```
+###Hello? Yes, This is Dog
+
+We should all know by now what's so cool about using `prototype`: we can define a method for a constructor, and any instance of the constructor (i.e., object created using that constructor's constructor) can use that method.
+
+```JavaScript
+function Dog (breed){
+  this.breed = breed;
+}
+
+// add the sayHello method to the Dog class so all dogs now can say "Hello I am a [dog]"
+
+// ie: "Hello I am a Labrodor"
+
+var yourDog = new Dog ("Labrodor");
+
+var myDog = new Dog ("Australian Kelpie");
+
+// calling our method 
+myDog.sayHello();
+
+```
+
+###So Meta I Can't Take It!
+
+Do you remember how we said every JavaScript object has some baggage associated with it? Part of this baggage was the `hasOwnProperty`method available to all objects. Now let's see where this came from...
+
+If we have just a plain object (i.e., not created from a class constructor), recall that it automatically inherits from Object.prototype. Could this be where we get `hasOwnProperty` from? How can we check?
+
+Let's first see what type `Object.prototype` is. Do this and save it into `prototypeType`.
+
+If all goes well, you should realize that `Object.prototype` itself is an object! And since all objects have the hasOwnProperty method, it's pretty easy to check if hasOwnProperty comes from Object.prototype. Do this in line 6 and the result may be surprising.
+
+
+**Object.prototype** is an **OBJECT** 
+
+    ```JavaScript
+    // assign Object.prototype to prototypeType 
+    var prototypeType = // code here 
+
+    console.log(prototypeType);
+
+    // All objects have a `hasOwnProperty` method.
+
+    // So here we can check if hasOwnProperty() comes from the Object.prototype by assining has Object.prototype.hasOwnProperty("hasOwnProperty"); to hasOwn
+
+    var hasOwn = // code here 
+    console.log(hasOwn);
+    ```
+### @Roy on this
+`typeof` is an object attribute. Every object has a typeof attribute describing its data type.
+
+Everything in JavaScript is an object. Everything shares this data type, `Object`. But as we move down the prototype chain we branch out into different types of objects. Hence, the attribute, `typeof`.
+
+*All objects have* **Object properties** *and* **methods** *inherited*. Just create any object, zap, it's got Object properties and methods.
+
+The object typeof is 'Object'. But we have different data types, including *numbers, strings, booleans, arrays, and object literals or constructs as well as null, undefined and function.*  That's a bundle of data/object types that are not defined in the object definition directly, but that are objects by definition.
+
+Because everything is an object and inherits all kinds of methods from Object, we have our own custom DIR function to help us determine just what properties this object has. If we've been handed a property and want to seek it out we have`.hasOwnProperty()`.
+
+Now we can invent a property identifier and see if our object has that property. 
+
+Okay, to recap...`typeof` is an attribute of an object. All objects have this attribute. When we poll it, we're only polling a variable, not calling a function. `.hasOwnProperty()` on the other hand is calling a function, *a built in method in the Object prototype chain inherited by all its descendants.*
+
+We know that `Object` has a built in method, `.hasOwnProperty()` so when we ask if it has that property, what's it going to reply? Well, yeah! `true`.
+
+###Prototype Definition
+A prototype, to answer the last question, is a set of *properties, attributes and methods associated with an object*. As stated, everything stems from the Object prototype and then adheres to what attributes and methods have been inherited from the various links in the chain reaching to the one link it is on.
+
+###Private Eye
+Recall that:
+
+***Public properties can be accessed from outside the constructor**
+
+**Private properties can only be accessed from within the class**
+
+**Using constructor notation**, a property declared as `this.property = "someValue;"` will be public, whereas a property declared with `var property = "hiddenValue;"` will be private.
+
+In this exercise, hit run and you'll see that all your grades are exposed! You really just want people to know your overall GPA.
+
+```JavaScript
+
+
+```

@@ -1,0 +1,209 @@
+### Shut the shop
+
+You are working for a large supermarket and the cash register has just failed. The boss is not happy as he can't make any money.
+
+To save the day it happens that you let slip to your boss that you know JavaScript and can build a quick virtual cash register until head office sends support staff.
+
+Your boss is over the moon and wants you to get started right away.
+
+##  1 / 17 
+
+Create a new object called cashRegister with the property total initialized to 0.
+
+Then change the property total to 2.99 using dot notation.
+
+```JavaScript
+
+```
+## Manually Add it Up
+
+Great! The bossman can see that you can tell the cash register the total. But we need the cash register to do more.
+
+Your boss wants a way to manually add the cost of each item. We have written the `add` method for you. There are two things we should note.
+
+1. We are using literal notation to include the method add.
+
+2. We've used the += operator. This is a shorthand way of saying
+
+`this.total = this.total + itemCost;`
+
+In general, `a += b;` means *"add b to a and put the result of that addition back into a.* This is also available for the other basic arithmetic functions: `-=`, `*=`, and `/=` do what you expect.
+
+##  2 / 17 
+
+Use the `add` method to sum up the cost of the following four items.
+
+1. Eggs 0.98
+
+2. Milk 1.23
+
+3. Magazine 4.99
+
+4. Chocolate 0.45
+
+If we only call the method once, it will just add the first item. So to add up the cost of four items, how many times will we have to call the method?
+
+    ```JavaScript
+    var cashRegister = {
+      total: 0,
+      add: function (itemCost){
+        this.total += itemCost; 
+      }
+    };
+
+    // Use the `add` method to sum up the cost of the following four items.
+    ```
+### Short Term Memory 
+But `add` method only works as long as you can remember the cost of every item in the store. We need something like a bar code scanner where just knowing the item name will automatically add the cost of that item to the total.
+
+So we create a method called `scan`. This method takes some item parameter, and adds the cost of this item to the total. `item` is a string.
+
+We also use a `switch` statement. Previously, we would have probably used multiple `if-else` statements. Here, things work in a similar way.
+
+For example, if the item is `"eggs"` (line 8), we then call the `add` method, passing through `0.98` as the `itemCost`. 
+
+This will add `0.98` to `cashRegister.total`. If instead the item is `"milk"` or `"chocolate"` or `"magazine"`, the relevant `itemCost` is added. Note no default case is needed for this switch statement.
+
+### 3 / 7 
+
+1. Write the `add` method which has a single parameter, `itemCost`. It will add the itemCost to the total.
+
+2. We have partially written the scan method for you and started a switch statement. Add the following 2 items to the switch statement:
+
+"magazine", 4.99
+"chocolate", 0.45
+Finally, use the scan method to buy "eggs" twice and a "magazine" three times.
+
+    ```JavaScript
+    var cashRegister = {
+        total: 0,
+    //insert the add method here    
+      
+        
+        scan: function (item) {
+            switch (item) { 
+            case "eggs": 
+                this.add(0.98); 
+                break;
+            
+            case "milk": 
+                this.add(1.23); 
+                break;
+            
+            //Add other 2 items here
+            case "magazine":
+                this.add(4.99);
+                break;
+            
+            case "chocolate" : 
+                this.add(0.45);
+                break;
+                
+            }
+            return true;
+        }
+    };
+
+    //Scan 2 eggs and 3 magazines
+
+    //Show the total bill
+    console.log('Your bill is '+cashRegister.total);
+
+    ```
+###I Have to Scan It More Than Once?
+Is that a smile on the boss's face? Well, there was one until he realized that your system requires every item to be scanned individually. He finds this pretty inefficient and you probably agree. Let's get real—it was pretty annoying having to call the scan method five times in the previous exercise!
+
+What can we do? What is the limitation of the scan method? Well, it has just one parameter, `item`, and you can't specify anything related to quantity.
+
+#### 4 / 7 
+
+Modify the `scan` method such that if we tell it the quantity of each `item`, it will be able to add the right amount to the `total`. Since you currently tell scan nothing about quantity, it may be useful to create another `parameter`.
+
+Scan 4 of each item using your improved `scan` method. Previously we would have needed to call scan 16 times! Now it is down to 4.
+
+
+    ```JavaScript
+    var cashRegister = {
+      total: 0,
+      // add method 
+      add: function (itemCost){
+        this.total += itemCost;
+       },
+
+      // scan method
+      scan: function (item){
+        switch (item) {
+          // multiplying eggs by the quantity of eggs we wish to purchase
+          case "eggs": this.add(0.98); break;
+          case "milk": this.add(1.23); break;
+          case "magazine": this.add(4.99); break;
+          case "chocolate": this.add(0.45); break;
+        }
+      }
+    }
+    ```
+### Beep Beep 
+
+The boss looks down at his pager to see Register 8 needs assistance. They have scanned an item too many times and need to void the last transaction.
+
+So he turns to you and says: "Okay JavaScript Ninja! What do we do now?!"
+
+
+#### 5 / 7 
+
+We need to keep track of how much the last transaction was. Modify the `add` method to keep track of the amount of the last transaction. This should be tracked in a new property, `lastTransactionAmount`.
+
+Add a method called `voidLastTransaction` that subtracts the last amount transacted from total.
+
+Then use the new method to void the last item we scanned. (Hint) the last item we scanned was chocolate!  
+
+Finally, scan only 3 of the last item we scanned (chocolate!).
+
+    ```JavaScript
+    var cashRegister = {
+        total:0,
+        // add the property voidLastTransaction to  `add`
+        add: function(itemCost) {
+            this.total += itemCost;
+            // voidLastTransaction here... 
+        },
+        scan: function(item,quantity) {
+            switch (item) {
+            case "eggs": this.add(0.98 * quantity); break;
+            case "milk": this.add(1.23 * quantity); break;
+            case "magazine": this.add(4.99 * quantity); break;
+            case "chocolate": this.add(0.45 * quantity); break;
+            }
+            return true;
+        },
+
+        //Add the voidLastTransaction Method here
+        
+    };
+
+    // All of the iems that we are purchasing
+
+    cashRegister.scan('eggs',1);
+    cashRegister.scan('milk',1);
+    cashRegister.scan('magazine',1);
+    cashRegister.scan('chocolate',4);
+
+    //Void the last transaction then and then add `3` 
+
+    //Show the total bill
+    console.log('Your bill is '+cashRegister.total);
+    ```
+###Over the Moon! 
+Great! The store is ticking along making money again. The boss is so happy you have just been given a bonus staff discount to the value of 20%.
+
+However the current system doesn't know how to apply the different levels of staff discount that apply. Now the rest of the staff is not happy and demanding you make improvements!
+
+Let's sort it out so that staff can get their well deserved discount.
+
+#### 6 / 7 
+Create an object constructor called `StaffMember` which takes two parameters—`name` and `discountPercent`. And then have the **(public)** properties `name` and `discountPercent` equal the parameters.
+
+To help, we have already created two employees using this constructor. `Sally` and `Bob` already have their staff discount set up: Sally getting 5% off and Bob getting 10%.
+
+Create a new instance of the object for yourself called `me` with your massive staff discount bonus of 20%.
+

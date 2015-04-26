@@ -1,0 +1,103 @@
+# More on Control flow in JS 
+CodeAcademy notes
+___
+##1/14
+
+###Modulo results
+[Question](http://www.codecademy.com/forum_questions/54e50efc76b8fe1900003fc8)
+
+Implicit conditional that must be evaluated to a boolean.
+`if (number % 2)`
+will be true when the remainder (the modulo) is 1 and false when it is 0.
+
+Explicit expression that results immediately in a boolean, with no further evaluation.
+`if (number % 2 === 0)`
+will be `true` when the modulo is 0, and `false` when it is 1.
+
+That said, your first example will work correctly if you switch around the `true` and `false` returns.
+
+Implicit conditionals are based upon truthy or falsy values resulting from their expressions.
+
+```
+var number = 13;
+number % 2 => 1
+
+```
+1 is truthy so evaluates to true. 0 is falsy.
+
+#isNaN 
+##2/14
+If you call `isNaN` on something, it checks to see if that thing is not a number. So:
+
+`isNaN('berry'); // => true`
+`isNaN(NaN); // => true`
+`isNaN(undefined); // => true`
+`isNaN(42);  // => false`
+
+###BE CAREFULL with isNaN
+If you call `isNaN` on a string that looks like a number, like `'42'`, JavaScript will try to help by automatically converting the string '42' to the number 42 and return false (since 42 is a number).
+
+#Switch statements
+As you might imagine, if you have a lot of choices you want to cover in a program, it might be annoying to type `else if ()` ten times. That's why JavaScript has the `switch` statement.
+
+Switch allows you to preset a number of options (called cases), then check an expression to see if it matches any of them. If there's a match, the program will perform the action for the matching case; if there's no match, it can execute a default option.
+
+The switch statement is put together like this:
+
+    ```JavaScript
+    switch (/Some expression/) {
+    case 'option1':
+        // Do something
+        break;
+    case 'option2':
+        // Do something else
+        break;
+    case 'option3':
+        // Do a third thing
+        break;
+    default:
+       // Do yet another thing
+    }
+    ```
+
+JavaScript will try to match the expression between the `switch()` parentheses to each `case`. It will run the code below each case if it finds a match, and will execute the `default` code if no match is found.
+
+#Logical Operators
+##11/14
+And `&&`
+Or `||`
+Not `!`
+
+##And
+
+The logical operator and is written in JavaScript like this: `&&` It evaluates to `true` when both `expressions` are `true`; if they're not, it evaluates to false.
+
+example 1: `console.log( 10 > 2 && 10 > 4); // true `
+example 2: `console.log( 10 > 2 && 10 < 4); // false `
+
+In example1 both expressions evaluate to `true`
+In example2 only our first expression evaluates to true therefor we have a `false`
+
+Another simple example 
+example 3: `true && true // true `
+example 4: `true && false // false `
+
+
+##Or 
+
+The logical operator `or` is written in JavaScript like this: `||`. It evaluates to `true` when one or the other or both expressions are `true`; if they're not, it evaluates to `false`.
+ 
+
+example 1. `console.log(10 > 2 || 10 < 3);// true`
+example 2. `console.log(true || false); //false`
+
+In example 1. `Or` evaluates  the expression of `10 < 3` which would be `false` but since we are using `||` we get the result of `true`. We get the result of true because our first expression is `true` therefore we get `true` 
+
+##Not 
+Not is written in JavaScript like this: `!`. It makes `true` expressions `false`, and vice-versa.
+
+`console.log(!true); // false`
+`console.log(!false) // true`
+
+`!true` is flipped changed a `false` with the `not` operator `!`
+

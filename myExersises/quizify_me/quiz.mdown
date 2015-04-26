@@ -1,0 +1,176 @@
+## Introduction 
+
+The purpose of this quiz is to test my knowledge on JavaScript. The quiz was designed to help me to see what I know and what I need to improve on.
+
+###Rules
+
+**1. All code must be commented to explain what each line is doing.**
+
+**2. Use `console.log();`to print all my answers to the console.**
+
+___
+
+###Question 1
+#### Array says: "Please iterate me!"
+Declare an `array` and **iterate** through the `array` with a `while loop`.
+___
+####[Answer 1]()
+___
+###Question 2
+#### Object says: "Please iterate me"
+Iterate through the properties of an `object` with a `for in loop`
+___
+####[Answer 2]()
+___
+###Question 3
+#### I can count in multiples of 10!
+Count to 100 in multiples of 10 using a `for loop`
+___
+####[Answer 3]()
+___
+###Question 4
+####Objects are friendly
+
+#### Part 1. 
+Create an empty `object literal` and give it three `properties`, use `dot notation` to assign the properties then print one of the `properties` to the console.
+___
+
+#### Part 2.
+Assign a new property to our object named `empty` that has a method. 
+This method needs to do 3 things. 
+
+1. Print to the `console` "this is a method". 
+
+2. Access the second property of `empty` and log it to `console`. 
+
+3. Print a string that says "Do I own a " then finally access the third property of `empty` and concatenate all the strings we logged earlier together with our third property. 
+___
+#### [Answer 4]()
+___
+
+###Question 5
+#### I can count to 20! 
+Use a `while loop` to count to the number 20
+
+___ 
+
+#### [Answer 5]()
+___
+
+###Question 6
+####Adding in functions
+Write a `function expression` that *adds* two numbers together.
+
+The `function expression` must accept numbers as `arguments`
+___
+
+#### [Answer 6]()
+___
+
+###Question 7
+####A swell won't wait for you.   
+
+#### Part 1.
+Create a `currentSwell` `object literal` that contains two `properties` `swellHeight` and `swellPeriod` then have a `methods` that `return` the `swellHeight` and `swellPeriod` in the form of a `string`. I would like to the `string` to look like this 
+___
+> The new incoming swell is 12 feet with a period of 14 seconds between wave intervals
+___
+####Part 2. 
+Create a `constructor function` named `newSwell` that contains a `method`. The `method` must `return` our `newSwell`data in the form of a string.
+___
+>  "The new incoming swell is 6 feet with a period of 12 seconds between wave intervals"
+___  
+
+Once I have created the `constructor function` and it  has a `method` then I need to declare a `object constructor` outside of `constructor functions` block. Name the `object constructor` `newSwellData`
+
+**HINT** 
+
+`newSwellData` is going to reference `newSwell` 
+
+It will look something like this `var newSwellData = new ???  `
+
+To make a new object constructor you need the syntax `new` after you declare `newSwellData` 
+
+Once this is done then you need to pass into the `object constructor` some arguments `(...)`
+
+These `arguments` are going to be the new swell data! 
+___
+
+#### [Answer 7]()
+___
+
+### Question 8
+####Coffee choices and some logic 
+####Part 1
+Write an `if/else statement` within a `function` named `myCoffee`. The `myCoffee` function  **must** `return` how many shots of expresso I had in my americano
+
+####Part 2
+Write the a `function` named `newCoffeeType` that has three `parameters`. 
+
+The `parameters` are going to be three different coffee choices. In the body of the `newCoffeeType` incorporate and `else/if statement` to perform some basic logic. The result I want is going to be one of the coffee choices.
+
+#####Remember to pass my coffee choices in as `arguments`
+
+___
+
+#### [Answer 8]()
+____
+
+### Question 9 
+####Working with Functions, Numbers and Logic
+
+#### Part 1. 
+Create the `function min(a,b)` which takes two numbers as `arguments` and `returns` the greater number using a `if/else statement`.
+
+#### Part 2.  
+Create a Function named `add` that takes 3 parameters `(result,x,y)`. Then use logic to multiply `x,y`. Pass a `string` into our `variable` named `result` as an `argument`. The string must explain what numbers we are multiplying.
+
+The string should like like this when logged to the console
+
+> "3 * 3 is ... " 
+___
+#### [Answer 9]()
+___
+
+###Question 10 
+#### Accurate swell forecast 
+#### Part 1
+
+Provide the user with a simple swell for cast using `objects`. The swell forecast that we create will print to the `console`. 
+
+####*Steps* (Part 1)
+
+These steps are a mere guidelines to the answer.
+___
+
+Our first `object literal` will store `waveHeight` and `wavePeriod` `properties`. We will then use a `method` to print `waveHeight` and `wavePeriod` to the console.
+
+Our second `object` literal will be called `tide` and store `highTide` and `lowTide` `properties`. We want to also have a `method` attached to `tide` that prints our tide `properties` to the console. 
+___
+
+#### Part 2
+
+1. Write a simple program that tells the user the conditions of the surf spot that they are interested in.
+
+2. Once the user has found out the surf spot report then `prompt` the user to ask where is the best spot is today. Our program should print out the best spot in the `console`
+
+####*Steps* (Part 2)
+Create a `Function` that holds a `switch state`. Then
+`Prompt` the user to enter only **one** of the **four** surf spots into the `prompt`. 
+
+`console.log()` the `Function` so it prints the info on the spot to the `console`
+
+The second part of our program is going to require some basic logic and we can do that with an `if/else` after the `switch` has finished. 
+
+**Hint** you should store the `variables` for the `if/else` in the `function` `parameters` and then pass the values for your `variables` into the `function` as `arguments`
+___
+#### [Answer 10]()
+___
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+div {
+    height:100px;
+    width:100px;
+    background-color:#FF0000;
+    border-radius:5px;
+}
+
+#green {
+    background-color:#008800;
+}
