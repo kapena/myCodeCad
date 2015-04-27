@@ -68,6 +68,7 @@ $('div').after($paragraph); // moving paragraph
 // Is the same as this 
 $('div').after($('p'));
 ```
+
 1. We can select an element using `$("p")` and assign it to a variable
 
 2. We can move the position in the DOM by using the variable in our `after()` statement
@@ -75,11 +76,9 @@ $('div').after($('p'));
 *Note: This does not copy the element from one location to another, it moves the original element effectively saving you from having to delete the original*
 
 ###Instructions 4 / 14 
-In script.js, add a new line below your code to move your `<p>` tag after the `<div>` with id `#one`
+In script.js, add a new line below your code to move your`<p>`tag after the`<div>`with id`#one` Once this is done then create a new jQuery selector that targets the`<div>`with the id`#two`
 
-Then create a new jQuery selector that targets the <div> with the id #two
-
-Using after again, select the <p> tag you created and move it after the <div> with id #two
+Using after again, select the`<p>`tag you created and move it after the`<div>`with id`#two`
 
 ```javascript
 $(document).ready(function () {
