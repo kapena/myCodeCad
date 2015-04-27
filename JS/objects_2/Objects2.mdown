@@ -626,7 +626,7 @@ Notice that we are free to access the `firstName` and `lastName` properties, whi
 ### Instructions 
 Declare a third variable called `myAge` and use it to store the age property of the `john` object.
 
-```javascipt
+```javascript
 function Person(first,last,age) {
    this.firstName = first;
    this.lastName = last;
@@ -654,7 +654,7 @@ Create an object john using the `Person` constructor. He can have any name and a
 
 Next, try to print his bankBalance. What happens?
 
-```javascipt 
+```javascript 
 function Person (firstName,lastName,age){
   this.firstName = firstName;
   this.lastName = lastName;
@@ -677,7 +677,7 @@ Here we have included similar code from last time, but here we have added a meth
 
 Then on line 17, create a new variable named myBalance and set its value to John's bank balance. You can do this by calling your newly-defined getBalance method for john. Then print `myBalance`.
 
-```javascipt
+```javascript
 function Person (firstName,lastName,age){
   this.firstName = firstName;
   this.lastName = lastName;
@@ -705,7 +705,7 @@ Methods can also be private within a constructor and inaccessible outside of the
 
 The way to access a private method is similar to accessing a private variable. You must create a public method for the constructor that returns the private method.
 
-```javascipt
+```javascript
 function Person (name,last,age){
   this.firstName = first;
   this.lastName = last;
@@ -752,7 +752,7 @@ The `askTeller` function has been modified within the Person constructor to dire
 ###Instructions 
 Create a new variable called myBalance that calls the askTeller function with a password argument, 1234.
 
-```javascipt
+```javascript
 // Person constructor 
 function Person (first,last,age) {
   this.firstName = first;
@@ -786,7 +786,7 @@ Recall the for-in loop:
 
 **Printing out values in for in**
 
-```javascipt
+```javascript
 // when I want to print the values of my object I use var `value`
 for(var value in obj){
   console.log(obj[value]);
@@ -795,7 +795,7 @@ for(var value in obj){
 
 **Printing out keys in for in**
 
-```javascipt
+```javascript
   // when I want to print the key in my object I use var `key`
 for (var key in obj){
   // when printing out a key you only need to reffernace your `key` var
@@ -809,7 +809,7 @@ Examine the languages object. Three properties are strings, whereas one is a num
 
 Use a for-in loop to print out the three ways to say hello. In the loop, you should check to see if the property value is a string so you don't accidentally print a number.
 
-```javascipt
+```javascript
 var languages = {
     english: "Hello!",
     french: "Bonjour!",
@@ -823,10 +823,11 @@ var languages = {
 
 We should all know by now what's so cool about using `prototype`: we can define a method for a constructor, and any instance of the constructor (i.e., object created using that constructor's constructor) can use that method.
 
-```javascipt
+```javascript
 function Dog (breed){
   this.breed = breed;
 }
+```
 
 ### Instructions
 
@@ -881,7 +882,7 @@ console.log(hasOwn);
 
 **Object.prototype** is an **OBJECT** 
 
-```javascipt
+```javascript
 // assign Object.prototype to prototypeType 
 var prototypeType = // code here 
 
