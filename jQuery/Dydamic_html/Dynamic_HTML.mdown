@@ -11,7 +11,7 @@ We'll want to pass in an entire HTML element in quotes:
 When we put text in quotes like this, we call it a string (as in a "string of characters"). From now on, when we say "string," you can think "text" or "phrase." Strings are always in single or double quotes.
 
 ###Instructions 1 / 14
-In `script.js`, create a variable, `$h1`, and set it equal to a jQuery object containing an <h1> tag with the text "Hello". The tag should be a string.
+In `script.js`, create a variable, `$h1`, and set it equal to a jQuery object containing an`<h1>`tag with the text "Hello". The tag should be a string.
 
 `var $h1 = $('<h1>Hello</h1>');`
 
