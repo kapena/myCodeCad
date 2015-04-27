@@ -1,13 +1,13 @@
-#myCodeCad README 
+##myCodeCad README 
 
-###CodeCademy is sole the creator of the content listed within each of these directory's - JS, jQuery
+###Codecademy is sole the creator of the content listed within each of these directory's - JS, jQuery
 
 While I was working on CodeCademy's courses I copied down all of there exercises into my own code editor. 
 
-I did this only for the sole purpose of learning. I personally believe the more you have your hands on the keyboard the better. Therefore I typed out each line of code that was presented to me through there courses.
+I did this **only** for the sole purpose of learning. I personally believe the more you have your hands on the keyboard the better. Therefore I typed out each line of code that was presented to me through there courses.
 
-This process helped instill the concept of what I was learning by 10 fold and I highly recommend anyone that is trying to lean code to type as much as they can...Even if you don't know what you are typing right off the bat.  
+This process helped instill the concept of what I was learning by 10 fold and I highly recommend anyone that is trying to lean code to type as much as they can...Even if you don't know what you are typing right off the bat. The more you type the more you will understand. 
 
-The only file that I made which I can call the content my own is **myExersises** 
+The only file that I can call the content *my own* is the directory named **myExersises** 
 
 myExersises was made before I finished codecademy objects 1 
