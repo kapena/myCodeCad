@@ -18,11 +18,10 @@ That said, your first example will work correctly if you switch around the `true
 
 Implicit conditionals are based upon truthy or falsy values resulting from their expressions.
 
-```
-var number = 13;
-number % 2 => 1
-
-```
+    ```javascript
+    var number = 13;
+    number % 2 => 1
+    ```
 1 is truthy so evaluates to true. 0 is falsy.
 
 #isNaN 
@@ -44,7 +43,7 @@ Switch allows you to preset a number of options (called cases), then check an ex
 
 The switch statement is put together like this:
 
-    ```JavaScript
+    ```javascript
     switch (/Some expression/) {
     case 'option1':
         // Do something

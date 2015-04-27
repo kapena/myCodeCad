@@ -22,7 +22,7 @@ Let's review what we previously covered. Each piece of information we include in
 7/33
 Create an object called me that describes your age and which country you live in?
 
-    ```JavaScript
+    ```javascript
     var me = {
       age: 24,
       country:"United States"
@@ -35,7 +35,7 @@ Notice our example objects `bob` and `susan`. In this case both bob and susan ea
 
 After creating our objects we have added code to access these properties. Notice that we save bob's `name`, "Bob Smith", into the *global variable* `name1`.
 
-    ```JavaScript
+    ```javascript
     var bob = {
       name: "Bob Smith",
       age: 30
@@ -65,7 +65,7 @@ In addition to dot notation, we can also access properties using *bracket notati
 
 Take a look at our next example object called `dog`. Notice on line 8 how we save the dog's `species` into a variable by accessing the species property of dog using bracket notation. 
 
-    ```JavaScript
+    ```javascript
     // Take a look at our next example object, a dog
     var myDog = {
       species: "kelpie",
@@ -99,7 +99,7 @@ The new keyword creates an empty object when followed by `Object()` the gernal s
 We then must fill this object with properties and labels.
 How do we do that? Check out the creation of the object `bob` to see what we do. We create the name property for the object `bob` by using `bob.name` and assigning that to a value. Contrast this to how we define properties in lines 6-7 for the `susan1` object.
 
-    ```JavaScript
+    ```javascript
     // Make a new susan2 object, using a constructor instead
     var susan2 = new Object();
     susan2.name = "Susan Jordan";
@@ -119,7 +119,7 @@ snoopy should have two properties, a species of "beagle" and age of 10.
 
 Then make buddy, a 5 year-old golden retriever, using constructor notation. This notation involves using the key word new to create an empty object. Then we fill it in using dot notation.
 
-    ```JavaScript
+    ```javascript
     var snoopy = {
       species: "beagle",
       age:10
@@ -148,7 +148,7 @@ And when we call/invoke the function, we can put inputs (arguments) for the para
 
 For example, the square function on line 2 takes x as its parameter and returns that parameter squared.
 
-    ```JavaScript
+    ```javascript
     var square = function (x){
       return x * x;
     }
@@ -156,7 +156,7 @@ For example, the square function on line 2 takes x as its parameter and returns 
 Now write my own function called multiply below
 It should take two parameters and return the product.
 
-    ```JavaScript
+    ```javascript
     var multiply = function (x,y){
       return x * y;
     };
@@ -166,7 +166,7 @@ It should take two parameters and return the product.
 
 In the last section, we discussed properties. We can think of properties as *variables* associated with an object. Similarly, a *method* is just like a *function associated with an object*.
 
-    ```JavaScript 
+    ```javascript 
     var bob = new Object();
     bob.name = "bob smith";
     bob.age = 30;
@@ -189,7 +189,7 @@ Methods serve **several** important purposes when it comes to objects.
 
 2.They can be used to make *calculations* based on *object properties*. Functions can only use parameters as an input, but methods can make *calculations with object properties*. For example, we can calculate the year `bob` was born based on his age with our `getYearOfBirth` method
 
-        ```JavaScript
+        ```javascript
         bob.age = 17;
         // setAge is our first method
         bob.setAge = function (newAge){
@@ -220,7 +220,7 @@ To sum it up in one sentence..
 
 Here we define our method using `this` before we even introduce bob
 
-    ```JavaScript
+    ```javascript
     var setAge = function (newAge){
       this.age = newAge;
       // `this` is referencing the `age` property
@@ -228,7 +228,7 @@ Here we define our method using `this` before we even introduce bob
     ```
 Now we need to make bob
 
-    ```JavaScript
+    ```javascript
     var bob = new Object();
     bob.age = 30;
     ```
@@ -245,7 +245,7 @@ Great! Now we can take advantage of the fact that the method `setAge` is not lim
 
 In the editor, we have the same code as last time, where we define setAge using `this`. We then set `bob.setAge = setAge;`. But this time we will reuse the setAge method for susan as well.
 
-    ```JavaScript
+    ```javascript
     // Method
     var setAge = function (newAge){
       // `this` is using our age property as a placeholder 
@@ -269,7 +269,7 @@ We have written a `setHeight` method which will update `rectangle` `height` to t
 
 Note we have used the keyword `this`.`this` is still a placeholder, but in this scenario, `this` can only ever refer to `rectangle` because we defined `setHeight` to be explicitly part of `rectangle` by defining it as `rectangle.setHeight`.
 
-    ```JavaScript
+    ```javascript
     var rectangle = new Object();
     rectangle.height = 3;
     rectangle.width = 4;
@@ -295,7 +295,7 @@ Let's look at another method that calculates useful information about an object.
 
 Here we have an object `square` with a `sideLength` property to represent the length of the square's side. This time, we have added a new method, `calcPerimeter`, which computes the perimeter of the square. Notice we make use of the keyword `return`.
 
-    ```JavaScript
+    ```javascript
     var square = new Object();
     square.sideLength = 6;
     square.calcPerimeter = function() {
@@ -319,11 +319,11 @@ Here we have an object `square` with a `sideLength` property to represent the le
 ##The object constructor
 We mentioned the term **constructor** back in section one, when we talked about making an object using the *keyword* `new`. A *constructor* is a way to create an object.
 
-When we write `bob = new Object( );` we are using a built-in constructor called `Object`. This constructor is already defined by the JavaScript language and just makes an object with no properties or methods.
+When we write `bob = new Object( );` we are using a built-in constructor called `Object`. This constructor is already defined by the javascript language and just makes an object with no properties or methods.
 
 This means we have to add our properties one at a time, just like we've been doing. To review, we've created bob using the constructor and defined the name property for you.
 
-    ```JavaScript
+    ```javascript
     var bob = new Object();
     bob.name = "Bob Smith";
     //add bobs age here and set it equal to 20 
@@ -352,7 +352,7 @@ In a constructor, we don't have to define all the properties using parameters. L
 
 In this case, both `sally` and `holden` will have the same species of `"Homo Sapiens"`, which makes sense because that is the same across all people.
 
-    ```JavaScript
+    ```javascript
 
     function Rectangle (height, width){
       this.height = height;
@@ -383,7 +383,7 @@ Check out our example to the bellow to see objects in action. Our `Rabbit` **con
 
 Recall how these kind of custom constructors are important because they allow us to easily make many similar objects.
 
-    ```JavaScript
+    ```javascript
     // Constructor
 
     function Rabbit (adjective){
@@ -400,7 +400,7 @@ Remember that an **object** is just another **type**, like a **string** or **num
 Here we have our `Person` **constructor** which should look familiar. We can use this constructor to make an **array** of `Person` objects, similar to how we might make an array of numbers but filling in people instead.
 
 
-    ```JavaScript
+    ```javascript
     // Our person constructor
     function Person (name, age) {
         this.name = name;
@@ -448,6 +448,33 @@ In addition to our `Person` constructor we have introduced a new `function`, `ag
 
 Notice we would be in trouble here if we tried to call `ageDifference` and passed in strings instead of people, because strings don't have an age property. But because we know from our *constructor that all Person objects will have an age property, we can pass any Person into* `ageDifference`. We must be careful not to pass anything but Person objects into `ageDifference`.
 
+    ```javascript
+    /*In addition to making arrays of Objects, we can use objects as parameters for functions as well. That way, these functions can take advantage of the methods and properties that a certain object type provides.*/
+
+    // Person Constructor 
+    function Person (name,age){
+      this.name = name;
+      this.age = age;
+    }
+
+    // a function that takes persons as arguments
+    // `ageDifferance` computes the differance in ages between two people
+
+    // ageDifference takes two `person` objects and as parameters and returns the differance in age between the two people
+
+    var ageDifference = function (person1,person2) {
+      return person1.age - person2.age;
+    };
+
+    // two `person` objects 
+    // we can pass any person into ageDifference
+
+    var alice = new Person("Alice",30);
+    var billy = new Person ("Billy",25);
+
+    // now call ageDifference by saving the result in our global diff variable
+
+    ```
 
 ###What are objects for? 
 Objects provide us with a way to represent *real-world or virtual things.* We can do this by storing information inside the **object's properties.** There are two basic ways to make objects:
@@ -456,20 +483,18 @@ Objects provide us with a way to represent *real-world or virtual things.* We ca
 where you use
 `var name = {..}`
 
-IE :
-```JavaScript
-var brent = {
-    age: 24,
-    home: "North Shore"
-};
-```
+
+    ```javascript
+    var brent = {
+        age: 24,
+        home: "North Shore"
+    };
+    ```
 
 #####Constructor Notation
 where you use `new`
  
-IE: 
-
-    ```JavaScript 
+    ```javascript 
     var brent = new Object();
     brent.age = 22;
     brent.home = "North Shore";
@@ -485,7 +510,7 @@ Properties are like variables that belong to an object, and are used to hold pie
 `ObjectName["PropertyName"]` 
 You need quotes! 
 
-    ```JavaScript
+    ```javascript
     var snoopy = new Object();
     snoopy.species = "beagle";
     snoopy.age = 10;
@@ -500,16 +525,24 @@ You need quotes!
 ###Customizing Constructors
 In addition to the basic `Object` constructor, we can define our own custom constructors. These are helpful for two reasons:
 
-1. We can assign our objects properties through parameters we pass in when the object is created.
+We can assign our objects properties through parameters we pass in when the object is created.
 
-2. We can give our objects methods automatically.
+We can give our objects methods automatically.
 These both work to save us time and lines of code when we make objects.
 
-```JavaScript
+    ```javascript
+    // 3 lines required to make harry_potter
+    var harry_potter = new Object();
+    harry_potter.pages = 350;
+    harry_potter.author = "J.K. Rowling";
 
-
-
-```
+    // A custom constructor for book
+    function Book (pages, author) {
+        this.pages = pages;
+        this.author = author;
+    }
+    // Use our new constructor to make the_hobbit in one line
+    ```
 
 ###Methods
 **Methods** are like functions that are associated with a particular object.

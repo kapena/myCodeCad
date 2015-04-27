@@ -15,18 +15,18 @@ You can even put other arrays inside arrays. You can make a two-dimensional arra
 This array is two-dimensional because it has two rows that each contain two items. If you were to put a new line between the two rows, you could log a 2D object—a square—to the console, like so:
 
 `[1, 1]`
-`[1, 1]`∏
+`[1, 1]`
 
 ###multidimensional array
     
-    ```JavaScript
+    ```javascript
     var newArray = [["hello","my age is, ",24],[true,24,"is your age"],["your age is? ",22,true]];
     ```
 ##Jagged arrays
 That's a fine-looking multidimensional array you've got there. (Yours is nested once, so it's a two-dimensional array, but if you really wanted, you could put arrays inside arrays inside arrays for even more dimensions.)
 
 
-Sometimes you want arrays that aren't as nice and even as your *3 x 3 two-dimensional array:* you may have *three elements in the first row, one element in the second row, and two elements in the third row.* JavaScript allows those, and they're called *jagged arrays.*
+Sometimes you want arrays that aren't as nice and even as your *3 x 3 two-dimensional array:* you may have *three elements in the first row, one element in the second row, and two elements in the third row.* javascript allows those, and they're called *jagged arrays.*
 
 #Objects 
 ##Nouns and verbs together
@@ -41,7 +41,7 @@ You can also think of **objects** as *combinations of key-value pairs* (like arr
 
 ##An example Object
 
-    ```JavaScript
+    ```javascript
     var phonebookEntry = {};
 
     phonebookEntry.name = 'Oxnard Montalvo';
@@ -60,7 +60,7 @@ Objects are just collections of information *(keys and values)* between curly br
 
 
 
-    ```JavaScript
+    ```javascript
     var myObject = {
         key: value,
         key: value,
@@ -70,7 +70,7 @@ Objects are just collections of information *(keys and values)* between curly br
 
 *Me object*
 
-    ```JavaScript
+    ```javascript
     var me = {
       name:"brent",
       age:24,
@@ -80,7 +80,7 @@ There are two ways to create an object: using *object* **literal** notation (whi
 
 *Literal notation* is creating an object with curly braces, like this:
 
-    ```JavaScript
+    ```javascript
     var myObj = {
         type: 'fancy',
         disposition: 'sunny'
@@ -119,7 +119,7 @@ Let's warm up with some arrays! Let's make an array that's a veritable potpourri
 
 ## Object Literal
 
-    ```JavaScript
+    ```javascript
       friends = {
         bill: {},
         steve: {}
@@ -128,7 +128,7 @@ Let's warm up with some arrays! Let's make an array that's a veritable potpourri
 
 ## Object Constructor
 
-    ```JavaScript
+    ```javascript
     var friends = new Object();
     // Adding keys to friends object constructor
     friends.bill = new Object();
@@ -146,7 +146,7 @@ The first function we'll create will be called list, and it will print out all t
 
 It looks like this:
 
-    ```JavaScript 
+    ```javascript 
     for (var key in object) {
       // Access that key's value
       // with object[key]

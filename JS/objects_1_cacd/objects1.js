@@ -434,25 +434,29 @@ var diff = ageDifference(alce,billy);
 
 // IE: 30 year old alice and 25 year old bob `olderAge(alice,bob)` should return 30 beacause alice is older than bob. 
 
+// Person is our constuctor which as two parameters name and age
 function Person (name,age){
   this.name = name;
   this.age = age;
 }
 
+// ageDifferance is a function expression which is taking both persons ages and minuses them. That is the pourpose of ageDifferance
 var ageDifferance  = function (person1,person2){
   return person1.age - person2.age;
 };
 // `olderAge` takes both persons and finds out which one is older. We achive this by using an `if/esle` 
 var olderAge = function (person1,person2){
   if (person1.age > person2.age){
+    // if true then fetches person1.age
     return person1.age;
   }
+  // if false then fetch person2.age 
   else {
     return person2.age;
   }
 
 };
-// `person` objects
+// `person` objects 
 var alice = new Person ("alice",30);
 var billy = new Person ("billy",25);
 // logging to the console which person older

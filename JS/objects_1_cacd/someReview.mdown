@@ -2,13 +2,13 @@
 
 ## Primitive data types
 
-The very basic building block of JavaScript are primitive data types. We know of three primitives:
+The very basic building block of javascript are primitive data types. We know of three primitives:
 
 strings (e.g. "dogs go woof!")
 numbers (e.g. 4, 10)
 booleans (e.g. false, 5 > 4)
 
-    ```JavaScript
+    ```javascript
     (((3 * 90) === 270) || !(false && (!false)) || "bex".toUpperCase() === "BEX");
     ```
 
@@ -36,7 +36,7 @@ Look at the array multiplesOfEight, and find the one that doesn't fit.
 
 Replace X in line 6 such that the variable answer is assigned the Boolean value of true.
 
-    ```JavaScript
+    ```javascript
     // Here is an array of multiples of 8. But is it correct?
     var multiplesOfEight = [8,16,24,32,40,58];
 
@@ -64,9 +64,9 @@ First, let's look at the order in which they are stacked up:
 `NOT MOD EQU`
 Considering left to right order, start with *NOT*. This negation operator is working with the operand *immediately associated with it.* In the above expression, that would be `i` (not i%5 as we might expect).
 
-To save typing, and see immediate output, how be we shift to the JavaScript Console and enter code at the command line?
+To save typing, and see immediate output, how be we shift to the javascript Console and enter code at the command line?
 
-    ```JavaScript
+    ```javascript
     > i = 15
     15
     > !i
@@ -75,7 +75,7 @@ To save typing, and see immediate output, how be we shift to the JavaScript Cons
 
 Since this program begins at `i=1,` the value will always be false.
 
-    ```JavaScript
+    ```javascript
     > !i
     false
     > false % 5
@@ -83,17 +83,17 @@ Since this program begins at `i=1,` the value will always be false.
     ```
 This likewise, will always be **zero** when `i` is **nonzero**
 
-Witness, coercion, otherwise normally referred to as casting. For the purposes of the *modulo operator* to work, both *operands needed to be numbers.* What does loosely typed JavaScript go ahead and do? It casts `false` (boolean type) into a `0` (number type) and carries on its merry way.
+Witness, coercion, otherwise normally referred to as casting. For the purposes of the *modulo operator* to work, both *operands needed to be numbers.* What does loosely typed javascript go ahead and do? It casts `false` (boolean type) into a `0` (number type) and carries on its merry way.
 
 Go ahead, try casting true using the above, `true % 5`. Surprise! `1`. Same thing we would get if we wrote, `1 % 5` .
     
-    ```JavaScript
+    ```javascript
     > true % 5
     1
     ```
 **SAME THING**
 
-    ```JavaScript
+    ```javascript
     > 1 % 5
     1
     ```
@@ -102,7 +102,7 @@ This is very important stuff to grasp on to. I hope you are taking notes or book
 
 Where were we?
 
-    ```JavaScript
+    ```javascript
     ! i => false
     false % 5 => 0
     0 === 0 => true
@@ -115,7 +115,7 @@ This is the order in which the code appears to be running. That would indicate, 
 `> i % 3 === 0 && !i % 5 === 0`
 `true`
 
-    ```JavaScript
+    ```javascript
     !i 
     false
 
@@ -132,7 +132,7 @@ This exercise has lots of movies and reviews to type in. You might wonder, "Is t
 But there's a reason why there are so many cases to deal with. We want to show that if we used if-else statements, it would be inefficient. What alternative to if / else can we use?
 
 ##Solution 
-    ```JavaScript
+    ```javascript
     // Imagine you have a movie collection, and you want to write code that returns your review for each one. Here are the movies and your reviews:
 
     // "Toy Story 2" - "Great story. Mean prospector."
