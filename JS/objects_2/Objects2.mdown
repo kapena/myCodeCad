@@ -27,10 +27,9 @@ function Person(job, married) {
 ###Fun with functions 
 Recall that we can add methods (i.e., functions associated with objects) to a constructor:
 
-```javascipt
+```javascript
   function someObject(){
   this.someMethod = function() {
-
   };
 }
 ```
@@ -43,8 +42,7 @@ Add a speak method to the Person constructor. Whenever speak is called, it shoul
 function Person(job, married) {
     this.job = job;
     this.married = married;
-    // add a "speak" method to Person!
-    
+    // add a "speak" method to Person!   
 }
 
 var user = new Person("Codecademy Student",false);
@@ -98,9 +96,9 @@ var james = {
     job: "programmer",
     married: false,
     sayJob: function() {
-        // complete this method
+    // complete this method
         
-    }
+   }
 };
 
 // james' first job
@@ -235,13 +233,12 @@ var dog = {
 
 // print out all the keys in the object 
 ```
-In the `for in` loop we use console.log to print each key in `dog`
-`property` is just a placeholder name and it can be what ever we wish. 
+In the `for in` loop we use `console.log` to print each key in `dog`.
 
 ###Instructions
 Use a for-in loop to print out all the properties of nyc.
 
-```javascipt
+```javascript
 var nyc = {
     fullName: "New York City",
     mayor: "Bill de Blasio",

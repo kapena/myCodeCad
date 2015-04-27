@@ -13,7 +13,7 @@ Create a new object called cashRegister with the property total initialized to 0
 Then change the property total to 2.99 using dot notation.
 
 ```JavaScript
-
+var cashRegishter = {};
 ```
 ## Manually Add it Up
 
