@@ -9,21 +9,21 @@ Finish the `james` object by adding properties to it. His job should be `"progra
 
 Create a new `gabby` object using the `Person` constructor. She should have a job of "student" and her married property should be true.
 
-    ```javascript
-    var james = {
-        // add properties to this object!
-        
-        
-    };
-    // Person constructor 
-    function Person(job, married) {
-        this.job = job;
-        this.married = married;
-    }
+```javascript
+var james = {
+    // add properties to this object!
+    
+    
+};
+// Person constructor 
+function Person(job, married) {
+    this.job = job;
+    this.married = married;
+}
 
-    // create a "gabby" object using the Person constructor!
+// create a "gabby" object using the Person constructor!
 
-    ```
+```
 ###Fun with functions 
 Recall that we can add methods (i.e., functions associated with objects) to a constructor:
 
