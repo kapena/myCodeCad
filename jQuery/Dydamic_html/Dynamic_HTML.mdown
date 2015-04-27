@@ -1,4 +1,4 @@
-###Creating HTML Elements
+##Creating HTML Elements
 Dynamically adding elements to our HTML page is a powerful tool—it lets us modify not only the formatting, but the actual structure of our websites in response to a user's actions. For example, when you get a Gchat, each message is actually a new `<div>` being dynamically added to the page. 
 
 If you think about it, we've sort of done this already: all we're doing is setting a variable equal to a jQuery object. In this case, however, instead of just having something like:
@@ -10,12 +10,12 @@ We'll want to pass in an entire HTML element in quotes:
 `$p = $("<p>I'm a new paragraph!</p>");`
 When we put text in quotes like this, we call it a string (as in a "string of characters"). From now on, when we say "string," you can think "text" or "phrase." Strings are always in single or double quotes.
 
-####Instructions 1 / 14
+###Instructions 1 / 14
 In `script.js`, create a variable, `$h1`, and set it equal to a jQuery object containing an <h1> tag with the text "Hello". The tag should be a string.
 
 `var $h1 = $('<h1>Hello</h1>');`
 
-###Inserting Elements
+##Inserting Elements
 We can insert our newly created elements using a few jQuery actions.
 
 `.append()` inserts the specified element as the last child of the target element. `.prepend()` inserts the specified element as the first child of the target element. If we have a `div` of class `.info`,
@@ -31,59 +31,58 @@ will add a paragraph containing the text "Stuff!" inside all divs of class `.inf
 
 has the same effect as the `.append()` code above. `.prependTo()` has a similar relationship to `.prepend()`.
 
-####Instructions 2 / 14 
+###Instructions 2 / 14 
 In the `script.js` tab, go ahead and `.append()` a paragraph to the body of your HTML document. Your paragraph should contain the text: "I'm a paragraph!"
 
-    ```Javascript
-    $(document).ready(function(){
-      $('body').append('<p>I\'m a paragraph!</p>');
-    });
-    ```
-###Before and After
+```javascript
+$(document).ready(function(){
+  $('body').append('<p>I\'m a paragraph!</p>');
+});
+```
+##Before and After
 We can specify where in the DOM we insert an element with the `.before()` and `.after()` functions. The syntax looks like this:
 
 `$('target').after('<tag>To Add</tag>');`
 
 Where 'target' is the element after which you want to add something and the bit between `<tag>`s is the HTML element you want to add. You can add `<h1>`s, `<div>`s, or any other valid HTML you like.
 
-####Instructions 3 / 14 
+###Instructions 3 / 14 
 Go ahead and add a <p> tag .after() the <div> with the ID #one. You can place any text you like in your <p> tag.
 
-    ```JavaScript
-    $(document).ready(function () {
-      //  inserting a paragraph of text after the <div> with the id of `#one`
-      $('#one').after('<p>Dusty is a good dog!</p>');
-    });
-    ```
-###Moving Elements Around
+```javascript
+$(document).ready(function () {
+  //  inserting a paragraph of text after the <div> with the id of `#one`
+  $('#one').after('<p>Dusty is a good dog!</p>');
+});
+```
+##Moving Elements Around
 Moving elements around in the DOM is a snap—all we need to do is use the jQuery functions we just learned on existing elements instead of creating new ones.
 
-    ```JavaScript
-    var $paragraph = $('p'); // paragraph element 
-    $('div').after($paragraph); // moving paragraph 
+```javascript
+var $paragraph = $('p'); // paragraph element 
+$('div').after($paragraph); // moving paragraph 
 
-    // Is the same as this 
-    $('div').after($('p'));
-    ```
+// Is the same as this 
+$('div').after($('p'));
+```
 1. We can select an element using `$("p")` and assign it to a variable
 
 2. We can move the position in the DOM by using the variable in our `after()` statement
 
 *Note: This does not copy the element from one location to another, it moves the original element effectively saving you from having to delete the original*
 
-####Instructions 4 / 14 
+###Instructions 4 / 14 
 In script.js, add a new line below your code to move your `<p>` tag after the `<div>` with id `#one`
 
 Then create a new jQuery selector that targets the <div> with the id #two
 
 Using after again, select the <p> tag you created and move it after the <div> with id #two
 
-    ```JavaScript
-    $(document).ready(function () {
-    // inserting a paragraph of text after the <div> with the id of `#one`
-      $('#one').after('<p>Dusty is a good dog!</p>');
-      $('#one').after($('p')); // Moving our paragraph under <div> `one` 
-      $('#two').after($('p')); // Moving our paragraph under <div> `two` 
-    });
-
-    ```
+```javascript
+$(document).ready(function () {
+// inserting a paragraph of text after the <div> with the id of `#one`
+  $('#one').after('<p>Dusty is a good dog!</p>');
+  $('#one').after($('p')); // Moving our paragraph under <div> `one` 
+  $('#two').after($('p')); // Moving our paragraph under <div> `two` 
+});
+```

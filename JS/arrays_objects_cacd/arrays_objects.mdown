@@ -19,9 +19,10 @@ This array is two-dimensional because it has two rows that each contain two item
 
 ###multidimensional array
     
-    ```javascript
-    var newArray = [["hello","my age is, ",24],[true,24,"is your age"],["your age is? ",22,true]];
-    ```
+```javascript
+var newArray = [["hello","my age is, ",24],[true,24,"is your age"],["your age is? ",22,true]];
+```
+
 ##Jagged arrays
 That's a fine-looking multidimensional array you've got there. (Yours is nested once, so it's a two-dimensional array, but if you really wanted, you could put arrays inside arrays inside arrays for even more dimensions.)
 
@@ -41,16 +42,16 @@ You can also think of **objects** as *combinations of key-value pairs* (like arr
 
 ##An example Object
 
-    ```javascript
-    var phonebookEntry = {};
+```javascript
+var phonebookEntry = {};
 
-    phonebookEntry.name = 'Oxnard Montalvo';
-    phonebookEntry.number = '(555) 555-5555';
-    phonebookEntry.phone = function() {
-      console.log('Calling ' + this.name + ' at ' + this.number + '...');
-    };
-    phonebookEntry.phone();
-    ```
+phonebookEntry.name = 'Oxnard Montalvo';
+phonebookEntry.number = '(555) 555-5555';
+phonebookEntry.phone = function() {
+  console.log('Calling ' + this.name + ' at ' + this.number + '...');
+};
+phonebookEntry.phone();
+```
 
 The phonebookEntry object handled data *(a name and a telephone number)* as well as a procedure *(the function that printed who it was calling).*
 
@@ -60,32 +61,33 @@ Objects are just collections of information *(keys and values)* between curly br
 
 
 
-    ```javascript
-    var myObject = {
-        key: value,
-        key: value,
-        key: value
-      };
-    ```
+```javascript
+var myObject = {
+    key: value,
+    key: value,
+    key: value
+};
+```
 
 *Me object*
 
-    ```javascript
-    var me = {
-      name:"brent",
-      age:24,
-    };
-    ```
+```javascript
+var me = {
+  name:"brent",
+  age:24,
+};
+```
+
 There are two ways to create an object: using *object* **literal** notation (which is what you just did) and using the *object* **constructor**.
 
 *Literal notation* is creating an object with curly braces, like this:
 
-    ```javascript
-    var myObj = {
-        type: 'fancy',
-        disposition: 'sunny'
-    };
-    ```
+```javascript
+var myObj = {
+    type: 'fancy',
+    disposition: 'sunny'
+};
+```
 *Constructor notation* looks like this:
 
 `var myObj = new Object();`
@@ -119,26 +121,26 @@ Let's warm up with some arrays! Let's make an array that's a veritable potpourri
 
 ## Object Literal
 
-    ```javascript
-      friends = {
-        bill: {},
-        steve: {}
-      };
-    ```
+```javascript
+  friends = {
+    bill: {},
+    steve: {}
+  };
+```
 
 ## Object Constructor
 
-    ```javascript
-    var friends = new Object();
-    // Adding keys to friends object constructor
-    friends.bill = new Object();
-    friends.steve = new Object();
-    ```
+```javascript
+var friends = new Object();
+// Adding keys to friends object constructor
+friends.bill = new Object();
+friends.steve = new Object();
+```
 
 With the bracket ([]) or dot(.) notation, like this:
 
-    friends[bill] = {};
-    friends.steve = {};
+`friends[bill] = {};`
+`friends.steve = {};`
 
 ##For/in loop
 
@@ -146,12 +148,12 @@ The first function we'll create will be called list, and it will print out all t
 
 It looks like this:
 
-    ```javascript 
-    for (var key in object) {
-      // Access that key's value
-      // with object[key]
-     }
-     ```
+```javascript 
+for (var key in object) {
+  // Access that key's value
+  // with object[key]
+ }
+ ```
     
 The "key" bit can be any placeholder name you like. It's sort of like when you put a placeholder parameter name in a function that takes arguments.
 

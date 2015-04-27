@@ -43,16 +43,16 @@ Use the `add` method to sum up the cost of the following four items.
 
 If we only call the method once, it will just add the first item. So to add up the cost of four items, how many times will we have to call the method?
 
-    ```javascript
-    var cashRegister = {
-      total: 0,
-      add: function (itemCost){
-        this.total += itemCost; 
-      }
-    };
+```javascript
+var cashRegister = {
+  total: 0,
+  add: function (itemCost){
+    this.total += itemCost; 
+  }
+};
 
-    // Use the `add` method to sum up the cost of the following four items.
-    ```
+// Use the `add` method to sum up the cost of the following four items.
+```
 ## Short Term Memory 
 But `add` method only works as long as you can remember the cost of every item in the store. We need something like a bar code scanner where just knowing the item name will automatically add the cost of that item to the total.
 
@@ -74,42 +74,42 @@ This will add `0.98` to `cashRegister.total`. If instead the item is `"milk"` or
 "chocolate", 0.45
 Finally, use the scan method to buy "eggs" twice and a "magazine" three times.
 
-    ```javascript
-    var cashRegister = {
-        total: 0,
-    //insert the add method here    
-      
+```javascript
+var cashRegister = {
+    total: 0,
+//insert the add method here    
+  
+    
+    scan: function (item) {
+        switch (item) { 
+        case "eggs": 
+            this.add(0.98); 
+            break;
         
-        scan: function (item) {
-            switch (item) { 
-            case "eggs": 
-                this.add(0.98); 
-                break;
+        case "milk": 
+            this.add(1.23); 
+            break;
+        
+        //Add other 2 items here
+        case "magazine":
+            this.add(4.99);
+            break;
+        
+        case "chocolate" : 
+            this.add(0.45);
+            break;
             
-            case "milk": 
-                this.add(1.23); 
-                break;
-            
-            //Add other 2 items here
-            case "magazine":
-                this.add(4.99);
-                break;
-            
-            case "chocolate" : 
-                this.add(0.45);
-                break;
-                
-            }
-            return true;
         }
-    };
+        return true;
+    }
+};
 
-    //Scan 2 eggs and 3 magazines
+//Scan 2 eggs and 3 magazines
 
-    //Show the total bill
-    console.log('Your bill is '+cashRegister.total);
+//Show the total bill
+console.log('Your bill is '+cashRegister.total);
 
-    ```
+```
 ##I Have to Scan It More Than Once?
 Is that a smile on the boss's face? Well, there was one until he realized that your system requires every item to be scanned individually. He finds this pretty inefficient and you probably agree. Let's get real—it was pretty annoying having to call the scan method five times in the previous exercise!
 
@@ -122,26 +122,26 @@ Modify the `scan` method such that if we tell it the quantity of each `item`, it
 Scan 4 of each item using your improved `scan` method. Previously we would have needed to call scan 16 times! Now it is down to 4.
 
 
-    ```javascript
-    var cashRegister = {
-      total: 0,
-      // add method 
-      add: function (itemCost){
-        this.total += itemCost;
-       },
+```javascript
+var cashRegister = {
+  total: 0,
+  // add method 
+  add: function (itemCost){
+    this.total += itemCost;
+   },
 
-      // scan method
-      scan: function (item){
-        switch (item) {
-          // multiplying eggs by the quantity of eggs we wish to purchase
-          case "eggs": this.add(0.98); break;
-          case "milk": this.add(1.23); break;
-          case "magazine": this.add(4.99); break;
-          case "chocolate": this.add(0.45); break;
-        }
-      }
+  // scan method
+  scan: function (item){
+    switch (item) {
+      // multiplying eggs by the quantity of eggs we wish to purchase
+      case "eggs": this.add(0.98); break;
+      case "milk": this.add(1.23); break;
+      case "magazine": this.add(4.99); break;
+      case "chocolate": this.add(0.45); break;
     }
-    ```
+  }
+}
+```
 ## Beep Beep 
 
 The boss looks down at his pager to see Register 8 needs assistance. They have scanned an item too many times and need to void the last transaction.
@@ -159,40 +159,40 @@ Then use the new method to void the last item we scanned. (Hint) the last item w
 
 Finally, scan only 3 of the last item we scanned (chocolate!).
 
-    ```javascript
-    var cashRegister = {
-        total:0,
-        // add the property voidLastTransaction to  `add`
-        add: function(itemCost) {
-            this.total += itemCost;
-            // voidLastTransaction here... 
-        },
-        scan: function(item,quantity) {
-            switch (item) {
-            case "eggs": this.add(0.98 * quantity); break;
-            case "milk": this.add(1.23 * quantity); break;
-            case "magazine": this.add(4.99 * quantity); break;
-            case "chocolate": this.add(0.45 * quantity); break;
-            }
-            return true;
-        },
+```javascript
+var cashRegister = {
+    total:0,
+    // add the property voidLastTransaction to  `add`
+    add: function(itemCost) {
+        this.total += itemCost;
+        // voidLastTransaction here... 
+    },
+    scan: function(item,quantity) {
+        switch (item) {
+        case "eggs": this.add(0.98 * quantity); break;
+        case "milk": this.add(1.23 * quantity); break;
+        case "magazine": this.add(4.99 * quantity); break;
+        case "chocolate": this.add(0.45 * quantity); break;
+        }
+        return true;
+    },
 
-        //Add the voidLastTransaction Method here
-        
-    };
+//Add the voidLastTransaction Method here
+    
+};
 
-    // All of the iems that we are purchasing
+// All of the iems that we are purchasing
 
-    cashRegister.scan('eggs',1);
-    cashRegister.scan('milk',1);
-    cashRegister.scan('magazine',1);
-    cashRegister.scan('chocolate',4);
+cashRegister.scan('eggs',1);
+cashRegister.scan('milk',1);
+cashRegister.scan('magazine',1);
+cashRegister.scan('chocolate',4);
 
-    //Void the last transaction then and then add `3` 
+//Void the last transaction then and then add `3` 
 
-    //Show the total bill
-    console.log('Your bill is '+cashRegister.total);
-    ```
+//Show the total bill
+console.log('Your bill is '+cashRegister.total);
+```
 ##Over the Moon! 
 Great! The store is ticking along making money again. The boss is so happy you have just been given a bonus staff discount to the value of 20%.
 

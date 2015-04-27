@@ -516,7 +516,7 @@ Animal.prototype.sayName = function (){
 
 // then call Penguin.prototype 
 ```
-####Penguin Magic
+##Penguin Magic
 We never defined a `sayName` method for `Penguin`, but what happens when we try to call it?
 
 ```javascript
