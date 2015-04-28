@@ -10,9 +10,17 @@
 3. Using after again, select the <p> tag you created and move it after the <div> with id #two
 */
 
+// 5 / 14
+// Go ahead and .remove() your <p> tag from the HTML document.
+
+
 $(document).ready(function () {
   //  inserting a paragraph of text after the <div> with the id of `#one`
   $('#one').after('<p>Dusty is a good dog!</p>');
   $('#one').after($('p')); // Moving our paragraph under <div> `one` 
   $('#two').after($('p')); // Moving our paragraph under <div> `two` 
+
+  // removing <p> tag 
+  $('p').remove();
 });
+
