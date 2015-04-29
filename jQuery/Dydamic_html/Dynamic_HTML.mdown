@@ -141,7 +141,7 @@ What if we want to toggle a class back and forth, though? That is, what if we wa
 As you probably guessed, jQuery includes a `.toggleClass()` function that does exactly this. If the element it's called on has the class it receives as an input, `.toggleClass()` removes that class; if the target element doesn't have that class, `.toggleClass()` adds it.
 
 ###Instructions 7 / 14 
-Change your .addClass() to a .toggleClass(). Click on your #text a bunch of times. See how it turns the highlighting on and off?
+Change your `.addClass()` to a `.toggleClass()`. Click on your `#text` a bunch of times. See how it turns the highlighting on and off?
 
 ```javascript
 $(document).ready(function () {
@@ -176,8 +176,121 @@ would give all`<div>`s on the page a green background color. You can modify any 
 Let's get some practice in. Change the`<div>`in our HTML document so it has a height of `200` pixels, a width of `200` pixels, and a border-radius of `10` pixels. Let's make this happen immediately, without the need for a click.
 
 ```javascript
+$(document).ready(function(){
+  // modifing a div to a new width, height and border border-radius
+  $('div').width('200px');
+  $('div').height('200px');
+  $('div').css('border-radius','10px');
+});
+```
+##Modifying Content
+Finally, we can update the contents of our HTML elements—that is, the bit between the opening and closing tags—using the `.html()` and `.val()` functions.
 
+`.html()` can be used to set the contents of the first element match it finds. For instance,`$('div').html();`will get the HTML contents of the first `div` it finds, and`$('div').html('I love jQuery');`will set the contents of the first `div` it finds to "I love jQuery!"
+
+`.val()` is used to get the value of form elements. For example,
+`$('input:checkbox:checked').val();` would get the value of the first checked checkbox that jQuery finds.
+
+###Instructions 9 / 14
+We've added a paragraph to our HTML document. Use the `.html()` function to set its text to "jQuery magic in action!" (Don't forget the exclamation point!)
+
+```javascript
+$(document).ready(function(){
+  // adding a pararagraph
+  $('p').html('jQuery is awesome!');
+});
+```
+##Set Up
+All right! It's time to apply our newfound knowledge. In this section, we'll build an interactive "to do" list that will add items to a checklist and remove them as they're checked off.
+
+###Instructions 10 / 14 
+You know the drill. Get your `document .ready()!
+
+###Click Da Button! Do It Naoughw!
+You'll notice we've set up an HTML form for grabbing the user's input. We'll need to store the user's input in a `variable`, which will allow us to append that input to the body of the HTML document later on.
+
+You can set a variable equal to the contents of the input field using .`val()`, like so: `var input = $('input[name=checkListItem]').val();`
+
+**How dose this work**
+Our selector finds our specific input using a `css` selector on our `checkListItem` input. We then  call `val()` to get the value of the field!
+
+###Instructions 11 / 14
+1. Let's create a `.click()` event handler for our `#button` element
+
+2. Make sure you pass it a `function(){}`
+
+3. Inside your `function(){}` create the variable `toAdd` and set it equal to the contents of the input field.
+
+```javascript
+$(document).ready(function(){
+  // click event for button element
+  $('button').click(function(){
+    // variable named toAdd which is set to the contents of the imput field
+    var toAdd = $('input[name=checkListItem]').val(); 
+  });
+});
 ```
 
+##Append to Body
+Perfect! Now we want to add our HTML element to the document. We can do this using our handy `.append()` function.
 
+Let's go ahead and append to our div with the `.list` class. We'll append a `<div>` with `class="item"`, since we'll want a way to target our appended `<div>`s later when we remove them. (A "to do" list is no good if we can't check things off it.)
 
+We'll want the contents of our `div` to be the contents of our input field, which we saved in the variable `toAdd`. That means when we append, we'll want to append
+
+`<div class="item">' + toAdd + '</div>'`
+
+###Instructions 12 / 14 
+Go ahead and `.append()` a `<div>` with `class="item"` to the `.list` div of your HTML document, then MAKE SURE to click your button to add an item—the exercise will wait for you to do so!
+
+```javascript
+$(document).ready(function(){
+  $('#button').click (function(){
+    // variable named toAdd which is set to the contents of the imput field
+    var toAdd = $('input[name=checkListItem]').val(); 
+      // appending a div class named `item` to our class `list` we then use `item` div to contain the contents of the input field which is stored in the toAdd variable
+  $('.list').append('<div class="item">' + toAdd + '</div>');
+  // remove whats been clicked
+
+  });
+});
+```
+##Remove What's Been Clicked
+Great job! Finally, we want to be able to check items off our list.
+
+You might think we could do this:
+```javascript
+$('item').click(function(){
+  $(this).remove();
+});
+```
+Which is that's not a bad idea. The problem is that it won't work—jQuery looks for all the `.items` when the DOM is loaded, so by the time your document is ready, it's already decided there are no `.items` to `.remove()`, and your code won't work.
+
+For this, we'll need a new event handler: `.on()`. You can think of `.on()` as a general handler that takes the event, its selector, and an action as inputs. The syntax looks like this:
+
+```javascript
+$(document).on('event','selector',function(){
+  // Do something 
+});
+
+```
+In this case, 'event' will be `'click'`, 'selector' will be `'.item'`, and the thing we'll want to do is call `.remove()` on this.
+
+###Instructions 13 / 14 
+Complete your program by adding the .on() event handler as described above. It should go inside your $(document).ready(), but after and outside your `$('#button').click()`.
+
+```javascript
+$(document).ready(function(){
+  $('#button').click (function(){
+    //  toAdd which is set to the contents of the imput field
+    var toAdd = $('input[name=checkListItem]').val(); 
+      // appending a div class named `item` to our class `list` we then use `item` div to contain the contents of the input field which is stored in the toAdd variable
+  $('.list').append('<div class="item">' + toAdd + '</div>');
+  });
+  // `on()` is an event handeler called which contains a click method on the `.item` class
+  $(document).on('click','.item',function(){
+    // here we are using `this` to refferance our `on` event handeler which then removes the item that is clicked upon 
+    $(this).remove();
+    });
+  });
+```
