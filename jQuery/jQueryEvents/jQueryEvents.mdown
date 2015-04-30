@@ -1,0 +1,12 @@
+### Review of jQuery events
+Review of jQuery Events
+You know a lot about jQuery events already, but it never hurts to review the basics.
+
+The setup almost always looks like this:
+```javascript
+$(document).ready(function(){
+$('thingToTouch').event(function(){
+	$('thingToAffect').effect();
+	});
+});
+```
