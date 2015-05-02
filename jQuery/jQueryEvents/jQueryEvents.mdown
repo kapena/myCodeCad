@@ -1,12 +1,198 @@
-### Review of jQuery events
-Review of jQuery Events
+## Review of jQuery events
 You know a lot about jQuery events already, but it never hurts to review the basics.
 
 The setup almost always looks like this:
 ```javascript
 $(document).ready(function(){
+  // the event
 $('thingToTouch').event(function(){
-	$('thingToAffect').effect();
-	});
+  // the effect
+  $('thingToAffect').effect();
+  });
 });
 ```
+where *"thing to touch"* is the HTML element you'll click on, hover over, or otherwise interact with, and *"thing to affect"* is the HTML element that fades away, changes size, or undergoes some other transformation.
+
+Sometimes these elements are one and the same—you might hover over a `<div>` to change its opacity. Other times, you might interact with a separate element; for example, you might click on a button to resize a `<div>`
+
+Sometimes if you want an effect to occur right away, without an event like `.click()` or `.hover()`, you'll skip the second line in the above:
+
+```javascript
+$('document').ready(function(){
+  // the effect
+  $('thingToAffect').effect();
+});
+```
+### Instructions 1 / 12
+Take a look at the code in script.js. Make sure you understand what it'll do! Click Save & Submit Code when you're ready to test your hypothesis.
+
+```javascript
+$('document').ready(function(){
+  // click event on our button class
+  $('button').click(function(){
+    // using a variable named toAdd which is storing a effect that is effecting   our message field with a `val` method.
+    var toAdd = $('input[name=message]').val();
+    // here we are accessing the `#messages` id and using an append method to insert a new <p> tag into the document everytime the user executes a click
+    $('#messages').append('<p>' + toAdd + '</p>' );
+  });
+});
+```
+## Cutting to the Chase
+Let's quickly review how to trigger an effect without a special event handler like `.click()` we just want our effect to happen as soon as our document is `.ready()`.
+
+Remember: practice makes perfect!
+
+### Instructions 2 / 12
+Your div represents the planet Krypton. Make it `.fadeOut()` 'fast'! (Go ahead and do this immediately, without the need for a click.)
+
+```javascript
+$(document).ready(function(){
+  // finding our div and then applying an effect of fade out
+  $('div').fadeOut('fast');
+});
+```
+## Adding an Event Handler
+Great! Now let's review how to make something happen with an event handler. In this case, we'll use `.click()`.
+
+### Instructions 3 / 12
+Rewrite your jQuery code so that Krypton only fades out when you .click() on it. It should still fade out 'fast'! MAKE SURE to click Save & Submit Code, then click on Krypton.
+
+```javascript
+$(document).ready(function(){
+  // click event on the div so when clicked upon the planet disappears
+  $('div').click(function(){
+    // finding our div and then applying an effect of fade out
+    $('div').fadeOut('fast');
+  });
+});
+```
+## Combining .click() and .hover()
+Well done! Let's add one more jQuery event to our "destruction of Krypton" simulation. Krypton didn't just vanish, it exploded! Let's make it turn red.
+
+```javascript
+// we target the planet with `div` then we apply a hover event to our div
+$('div').hover(function(){
+  // now we add a class of 'green' to our `div` this turns the planet green once hovered upon because it is sitting within our `hover` event
+  $('div').addClass('green');
+  });
+```
+
+### Instructions 4 / 12
+Below your `.click()` event code from the previous lesson, create a new selector `$('div')`
+
+Apply a hover event to this selector and have it add the class `red` to Krypton, our `div`
+
+```javascript
+$(document).ready(function(){
+  // click event on the div so when clicked apon the planet dissapears
+  $('div').click(function(){
+    // finding our div and then applying an effect of fade out to it
+    $('div').fadeOut('fast');
+  });
+  // new event
+  $('div').hover(function(){
+    // adding a class of red to our div
+    $('div').addClass('red');
+  });
+});
+```
+
+## The .dblclick() Event
+Now that we've reviewed our jQuery event handlers, let's learn a new one.
+
+We might want to cause a jQuery effect when a user double clicks on an element, rather than just single-clicking. We can do this with the `.dblclick()` event handler.
+
+### Instructions 5 / 12
+Use the .dblclick() handler to make our 'div' .fadeOut()s 'fast'. Make sure to double-click on your div to see the effect!
+
+```javascript
+// Use the .dblclick() handler to make our 'div' .fadeOut()s 'fast'. Make sure to double-click on your div to see the effect!
+$(document).ready(function(){
+  // dobble click event
+  $('div').dblclick(function(){
+    // fadeout effect happens when we click on our div
+    $('div').fadeOut('fast');
+  });
+});
+
+```
+## Hover
+What if you wanted to create an effect when your mouse is on top of an object, then have that effect vanish when your mouse moved away? You might notice this effect in use on many site's navigation bars!
+
+Check the code bellow for the description on how this works!
+
+```javascript
+// selecting the element that we want to modify
+$('div').hover
+// hover effect is taking two functions
+(function(){
+  // function 1
+  // when the mouse hovers over our div we apply a class of highlight
+  $(this).addClass('highlight');
+},
+
+function(){
+  // function 2
+  // when the mouse leaves the object our second function is called therefor removing the highlight class
+  $(this).removeClass('highlight')
+}
+);
+```
+
+**Note**
+Your second `function(){}` doesn't have to be the opposite of the first `function(){}`, but it would be very common!
+
+### Instructions 6 / 12
+We're ready to apply a hover effect to our site's navigation bar
+
+In script.js use your selector to target our menu items
+When we hover over the menu item, let's apply a class of active
+When our mouse leaves the menu item, let's remove the active class
+
+```javascript
+$(document).ready(function(){
+
+  $('div').hover(function(){
+    // add class therefor the hover is toggled on
+    $(this).addClass('active');
+  },
+
+  function (){
+    // removeing class therefor the hover effect is toggled off
+    $(this).removeClass('active');
+  }
+);
+
+});
+```
+## Lets focus
+Another event we can make use of is `.focus()`. We say an element has focus when we click on it or tab over to it. If you've ever filled out a form on a web page and seen how each text box lights up when you tab to it or click on it, you've seen focus in action!
+
+The `.focus()` event handler only works on elements that can receive focus—the list of these elements is a bit vague, but HTML elements like `<textarea>`s and `<input>`s are the usual suspects.
+
+Check out the form we've set up in the Result tab. If you click on the input field, you'll see it automatically highlights in a delightful baby blue. Too bad baby blue is for babies! We want our highlighting to be red.
+
+We can do this with two tools: `.focus()` and our `.css()` function from the last section. We want to write a bit of jQuery code that will change our 'input''s 'outline-color' to 'red' when it gains focus.
+
+
+### Instructions 6 / 12
+Turn 'input' into a jQuery element and call the `.focus()` event handler on it.
+
+Inside your event handler function, call `.css()` on your 'input' element and pass it two inputs: the CSS element to change ('outline-color') and the color to change it to `('#FF0000')`.
+
+Not all browsers have equal CSS implementation. So for this lesson, if you are using Firefox, you will need to first change the outline-style to solid.
+
+```javascript
+// setting the doucment to ready
+$(document).ready(function(){
+  // event
+  // turning `input` box into a jQuery element with `focus`
+  var input = $('input[type=text]').focus(function(){
+    // effect
+    // accessing our input box and assigning it some css properties so when clicked upon it lights up.
+    $('input').css('outline-color','FF0000');
+  });
+});
+```
+## The .keydown() Event
+To be continued :) 
