@@ -84,14 +84,14 @@ Apply a hover event to this selector and have it add the class `red` to Krypton,
 
 ```javascript
 $(document).ready(function(){
-  // click event on the div so when clicked apon the planet dissapears
+  // click event on the div so when clicked upon the planet disappears
   $('div').click(function(){
-    // finding our div and then applying an effect of fade out to it
+    // finding our div and then applying an effect of fade out to it fades out
     $('div').fadeOut('fast');
   });
-  // new event
+  // new event gets triggered when we hover over the div
   $('div').hover(function(){
-    // adding a class of red to our div
+    // adding a class of red to our div once hover over
     $('div').addClass('red');
   });
 });
@@ -108,7 +108,7 @@ Use the .dblclick() handler to make our 'div' .fadeOut()s 'fast'. Make sure to d
 ```javascript
 // Use the .dblclick() handler to make our 'div' .fadeOut()s 'fast'. Make sure to double-click on your div to see the effect!
 $(document).ready(function(){
-  // dobble click event
+  // double click event
   $('div').dblclick(function(){
     // fadeout effect happens when we click on our div
     $('div').fadeOut('fast');
@@ -158,7 +158,7 @@ $(document).ready(function(){
   },
 
   function (){
-    // removeing class therefor the hover effect is toggled off
+    // removing class therefor the hover effect is toggled off
     $(this).removeClass('active');
   }
 );
@@ -195,4 +195,113 @@ $(document).ready(function(){
 });
 ```
 ## The .keydown() Event
-To be continued :) 
+You're not limited to mouse events in jQuery—you can trigger events using the keyboard, as well!
+
+The `.keydown()` event is triggered whenever a key on the keyboard is pressed. It only works on whatever page element has focus, so you'll need to click on the window containing your div before pressing a key in order for you to see its effects.
+
+Let's go ahead and combine our new event with a new effect: `.animate()`! We'll use this to move an object on the screen whenever we press a key.
+
+The `.animate()` effect takes two inputs: the animation to perform, and the time in which to perform the animation. Here's an example:
+
+```javascript
+$(document).ready(function (){
+  // the first div .animate finds it will move it 10px to the right
+  $('div').animate({left:'+=10px'},500);
+});
+```
+Remember, increasing the distance from the left margin moves something to the right; the `+=` bit is just a shorthand for "take the existing number and add ten to it." In this case, it add ten pixels to the current distance from the left margin.
+
+### Instructions 8 / 12
+After setting up with `$(document).ready()`, call the `.keydown()` event on `$(document)` (We want the whole document object to respond whenever a key is pressed.)
+
+Inside your `.keydown()` handler, `.animate()` your 'div' with the same inputs as above:` {left:'+=10px'}` and `500`.
+
+```javascript
+// setting the document to ready
+$(document).ready(function(){
+  // calling the `.keydown()` event on `$(document)`
+  $(document).keydown(function(){
+    // animating the div once i press any keydown
+    $('div').animate({left:'+=10px'},500);
+  });
+});
+```
+
+## Getting ready
+Now that you've got a solid foundation in jQuery events and have covered important functions like `.keydown()` and `.animate()`, we'll put our newfound knowledge to work. In this section, we'll animate a sprite, or two-dimensional image on the screen.
+
+### Instructions 9 / 12
+Get the document ready!
+
+```javascript
+$(document).ready(function(){
+  // do something
+});
+```
+### Using .keydown();
+Now we want to add a line of jQuery that will handle the keydown event.
+
+### Instructions 10 / 12
+Inside your `$(document).ready()` setup, call the `.keydown()` event on `$(document)`. Pass `.keydown()` a `function(){}` as an input. Here's the twist: your function should take a single input, `key`, which will help jQuery figure out which key was pressed.
+
+```javascript
+// setting the document to ready
+$(document).ready(function(){
+  // our keydown function takes `key` as a single imput`
+  $(document).keydown(function(key){
+    // move character  
+  });
+});
+```
+## Filling Out the Cases
+Great work! Now it's time to animate our character based on the user's input from the keyboard.
+
+Every key press on a keyboard is translated into a number for the computer to use. Don't worry about memorizing them, for now we've given you the basics in script.js
+
+```javascript
+// left arrow key pressed
+case 37:
+  // animating our key to the left
+  ('img').animate({left:'-=10px'},'fast');
+```
+The left arrow key on our keyboards translates to number 37 to the computer. When that key is pressed, we animate our image to the left by subtracting 10px
+
+To move up we subtract `10px` from the `top`
+
+To move right we add `10px` to the `left`
+
+Finally, to move down we add `10px` to the `top`
+
+### Instructions 11 / 12
+
+Let's make our image move!
+
+Complete the code for Up, Right, and Down!
+
+```javascript
+// setting the document to ready
+$(document).ready(function(){
+  // our keydown function takes `key` as a single imput`
+  $(document).keydown(function(key){
+    // switch
+    switch(parseInt(key.which,10)) {
+      // left key pressed
+      case 37:
+        $('img').animate({left:'-=10px'},'fast');
+        break;
+        // up key pressed
+      case 38:
+        $('img').animate({top:'-=10px'},'fast');
+        break;
+          // right key pressed
+      case 39:
+        $('img').animate({left:'+=10px'},'fast');
+        break;
+            // down key pressed
+      case 40:
+        $('img').animate({top:'+=10px'},'fast');
+        break;
+        }
+      });
+    });
+```
