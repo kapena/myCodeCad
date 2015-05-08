@@ -1,4 +1,4 @@
-## Codecademy is sole the creator of the content listed within each of these directory's - JS, jQuery
+## Codecademy is the creator of the content listed within each of these directory's - JS, jQuery
 
 While I was working on Codecademy's courses I copied down the JavaScript track and the jQuery track lessons and exercises into my own code editor.
 
